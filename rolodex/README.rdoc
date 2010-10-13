@@ -1,0 +1,146 @@
+= Rolodex
+
+The Rolodex Application is an application to store all your contacts 
+details, in other words, a boring address book. 
+It should consist on a single page (no frames allowed), 
+and all actions should be performed preferably via Ajax. 
+If you don't know how to Ajax it's OK, solve the puzzle without it if you want. 
+Basically we want to see your JS skills also so focus on your strengths and
+what you think is the better solution.
+
+== The Client Specs
+
+This application consist on tree main parts:
+
+* A list of contact names (sorted alphabetically), on the right side. 
+* A dynamic search text box, to filter contact list on the right. 
+* A section were the selected contact details are shown, or edited.
+
+The list of contacts should have a checkbox to delete one or many 
+contacts. Also two javascript actions should be 
+created: "select all" and "select none". The "select all" link should 
+select the currently displayed contacts on the list, and 
+the "select none" should do the exact opposite.
+
+On top of that list, a text box with the label "Search" should 
+be placed. As soon the user starts typing in there the list of 
+contacts should be filtered. On the right side of the search text box 
+a "clear" link should be placed to clear the filter of the search.
+
+The user should be able to create list of contacts. The user should 
+be able to create new list and drag the contacts into that list. 
+This lists should be placed below the contact list.
+
+The display and edition of contacts details should be placed to the 
+right of the contact list, filling all the available space of the 
+browser window. This section should have the following behaviours:
+
+* Display contact details: When in this mode it should display the 
+name of the contact, their phone numbers and addresses. Also should 
+display links to actions: "edit", "export as vCard", and "delete".
+* Edit contact details: In edit mode, this section should display 
+the form to edit contact details (name, company, phone numbers, 
+and addresses), add or remove phone numbers and addresses. When 
+in this mode, the section should show links to actions: "save" 
+and "cancel".
+* Display list of contacts: When a list of contacts is selected,
+ it should display the contacts of that list. The contacts should 
+display only their names (sorted alphabetically). Each of the 
+contact names should be a link to the actual contact to show 
+its details. When in this mode, the section should show links 
+to actions: "export as vCard" and "delete".
+
+== The features
+
+Here is the list of features you are required to implement.
+Please keep track of this list and when you finish please send
+us the percentage of each feature that you completed and the
+difficulty level from 1 being 'trivial' to 5 being
+'took me more than 5 hours to implement'.
+
+* User should be able to export contact list as vCard 
+* User should be able to delete contact list
+* User should be able to create list of contacts
+* User should be able to export one or all of their contacts (vCard format)
+* Application should filter contacts, showing only the contacts that belongs to the current user (authenticated)
+* Application should require authentication to users in order to access their contacts
+* Application should paginate the list of contacts
+* User should be able to upload an image as a picture for contacts
+* User should be able to search contacts by contact or company name
+* User should be able to browse the list of contacts (alphabetically)
+* User should be able to enter company name for a business card
+* User should be able to edit addresses
+* User should be able to edit phone numbers
+* User should be able to erase addresses
+* User should be able to erase phone numbers
+* User should be able to add multiple addresses per business card
+* User should be able to add multiple phone numbers per business card
+* User should be able to register, modify, and delete business cards
+
+== The model
+
+Here is the application suggested model. The base code already 
+contains these suggested models but keep you can change or add 
+attributes and logic to them and add your own as you need
+to match the specs and features (Ex. User Model).
+
+http://s3.amazonaws.com/ember/IKXPkZXcNIxBWbSlLfvL6MNbgTDA3ebV_o.png
+
+== The nitty gritty
+
+You are provided with a base rails app with some of the base setup
+for creating the solution. The spec directory has mostly
+failing specs, and some not implemented.
+
+Do your best to make all the specs pass because that will be the
+first thing we will check. We encourage you to refactor the specs
+these specs are meant to work as outlines also there are specs that
+should be added by you. 
+
+TDD and BDD is a highly valued knowledge
+for us so try your best on doing missing specs and having current
+specs pass but also mind that time counts!
+
+The base app is a Rails 3 app so be sure to have bunlder gem installed.
+
+      gem install bundler
+
+Run the base migrations
+
+      rake db:create db:migrate db:test:load
+
+Then run the specs with autotest (best practice FTW!)
+
+      gem install autotest
+      autotest
+
+There are some gems included that deal with basic stuff but if you 
+feel you need to trash them or add other gems or plugins its ok
+as long as the tools you use get the things done! 
+
+We like to use the most widely adopted gems and plugins so its not
+necessary to do everything from scratch, we value the power of the 
+community and DRY!
+
+== The deliverable
+
+Please fork the complete repo and work directly from the code on
+this folder. When you finish the challenge please send us the link
+for your forked repository, comments, suggestions and complaints.
+
+Commit as often as you can and push your solution when its finished.
+At least push once when you start the solution and once you end it,
+we would like to see the time it took to reach your solution also.
+We would also like to look at your workflow and how you separate
+your commits according to how you work.
+
+Also remember to add seed data for the app!
+
+== Notes and Caveats
+
+* We prefer you only use JQuery for JS. (No RJS please!)
+* Extra points for higher test coverage!
+* Extra points for implementing the features as cucumber features!
+* Extra points if you find a feature that is not mapped correctly 
+from the specs and should be added.
+* Jquery and Jquery UI is already included in the project

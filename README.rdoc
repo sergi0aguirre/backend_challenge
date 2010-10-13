@@ -1,0 +1,11 @@
+= Backend Challenges
+
+If you don't know exactly what this is for then you are probably in the
+wrong place so move on :P
+
+If you insist you can fork this repo and share with us your:
+* ruby skills
+* best practice mojo 
+* ninja coding habilities
+
+Each challenge is in its own folder!
