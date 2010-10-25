@@ -10,7 +10,7 @@ what you think is the better solution.
 
 == The Client Specs
 
-This application consist on tree main parts:
+This application consist on three main parts:
 
 * A list of contact names (sorted alphabetically), on the right side. 
 * A dynamic search text box, to filter contact list on the right. 
@@ -35,20 +35,9 @@ The display and edition of contacts details should be placed to the
 right of the contact list, filling all the available space of the 
 browser window. This section should have the following behaviours:
 
-* Display contact details: When in this mode it should display the 
-name of the contact, their phone numbers and addresses. Also should 
-display links to actions: "edit", "export as vCard", and "delete".
-* Edit contact details: In edit mode, this section should display 
-the form to edit contact details (name, company, phone numbers, 
-and addresses), add or remove phone numbers and addresses. When 
-in this mode, the section should show links to actions: "save" 
-and "cancel".
-* Display list of contacts: When a list of contacts is selected,
- it should display the contacts of that list. The contacts should 
-display only their names (sorted alphabetically). Each of the 
-contact names should be a link to the actual contact to show 
-its details. When in this mode, the section should show links 
-to actions: "export as vCard" and "delete".
+* Display contact details: When in this mode it should display the name of the contact, their phone numbers and addresses. Also should display links to actions: "edit", "export as vCard", and "delete".
+* Edit contact details: In edit mode, this section should display the form to edit contact details (name, company, phone numbers, and addresses), add or remove phone numbers and addresses. When in this mode, the section should show links to actions: "save" and "cancel".
+* Display list of contacts: When a list of contacts is selected,it should display the contacts of that list. The contacts should display only their names (sorted alphabetically). Each of the contact names should be a link to the actual contact to show its details. When in this mode, the section should show links to actions: "export as vCard" and "delete".
 
 == The features
 
@@ -141,6 +130,5 @@ Also remember to add seed data for the app!
 * We prefer you only use JQuery for JS. (No RJS please!)
 * Extra points for higher test coverage!
 * Extra points for implementing the features as cucumber features!
-* Extra points if you find a feature that is not mapped correctly 
-from the specs and should be added.
+* Extra points if you find a feature that is not mapped correctly from the specs and should be added.
 * Jquery and Jquery UI is already included in the project
