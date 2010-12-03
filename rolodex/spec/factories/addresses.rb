@@ -3,7 +3,7 @@
 Factory.define :address do |f|
   f.contact_id 1
   f.address "MyString"
-  f.zip "MyString"
+  f.zip "12345-1234"
   f.city "MyString"
   f.state "MyString"
   f.country "MyString"

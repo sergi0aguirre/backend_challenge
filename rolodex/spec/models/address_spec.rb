@@ -12,7 +12,7 @@ describe Address do
   it { should validate_presence_of(:zip) }
   it { should validate_presence_of(:city) }
   it { should validate_presence_of(:state) }
-  it { should validate_presence_or(:contact_id) }
+  it { should validate_presence_of(:contact_id) }
   it { should validate_presence_of(:address_type_id) }
 
   it { should validate_format_of(:zip).with('55416') }
