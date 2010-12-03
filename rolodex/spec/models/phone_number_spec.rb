@@ -4,6 +4,9 @@ describe PhoneNumber do
 
   before(:each) do
     @phone_number = Factory(:phone_number)
+    @phone_type=Factory(:phone_type)
+    @phone_number.phone_type=@phone_type
+    @phone_number.save
   end
 
   it { should belong_to(:contact) }
@@ -47,7 +50,13 @@ describe PhoneNumber do
     end
   end
 
-  pending 'should delegate phone type name to phone type model'
-  pending 'should have a virtual attribute setter for the phone type'
+
+  it 'should  have  a virtual  phone type name' do
+    @phone_number.phone_type_name.should == @phone_type.name
+  end
+
+  it 'should  have  a virtual  phone type name' do
+    @phone_number.should respond_to(:phone_type_name)
+  end
 
 end

@@ -6,8 +6,10 @@ class PhoneNumber < ActiveRecord::Base
   belongs_to :contact
   belongs_to :phone_type
 
-  validates_presence_of :area_code
-  validates_presence_of :number
+  delegate :name , :to=>:phone_type ,  :prefix=>true
+
+  validates :area_code, :presence=>true
+  validates :number , :presence=>true
   validates_uniqueness_of :number, :scope => [:area_code, :contact_id]
 
   validates_format_of :area_code, :with => /^\d{3}$/,
@@ -26,5 +28,6 @@ class PhoneNumber < ActiveRecord::Base
       self.number    = match_data[2] + match_data[3]
     end
   end
+
 
 end
