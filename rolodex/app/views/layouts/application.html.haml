@@ -1,0 +1,30 @@
+!!! 1.1
+%html{:xmlns=> "http://www.w3.org/1999/xhtml", "xml:lang"=>"en-US", :lang=>"en-US"}
+  %head
+
+    %meta{ 'http-equiv' => 'Content-Type', :charset=>"utf-8"}
+    %title
+      = h(yield(:title)) || "Rolodex"
+    = stylesheet_link_tag :all
+    = javascript_include_tag :defaults
+    = csrf_meta_tag
+
+  %body
+    #page.centered
+      #header
+        =link_to "Contact list",root_path , :id=>"logo"
+        -if user_signed_in?
+          = link_to 'Contacts', contacts_path , :class=>'login_links'
+          = link_to 'Log out', destroy_user_session_path, :class=>'login_links'
+        -else
+          = link_to '>Sign in', new_user_session_path, :class=>'login_links'
+
+      #content
+        - if flash[:notice]
+          .notice= flash[:notice]
+        - if flash[:error]
+          .error= flash[:error]
+        =yield
+
+      #footer
+        = raw "&copy; 2010 Contact list  powered by Sergio Aguirre "

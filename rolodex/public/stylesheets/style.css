@@ -1,0 +1,157 @@
+/****************************************************************************************************************************
+													H E L P E R S
+*****************************************************************************************************************************/
+.centered{ margin: 0 auto; }
+
+.alignv_top{ vertical-align: top; }
+.alignv_base{ vertical-align: bottom; }
+.alignv_middle{ vertical-align: middle; }
+
+.text_justify{ text-align: justify; }
+.text_right{ text-align: right; }
+.text_center{ text-align: center; }
+
+.clear_both{ clear: both; }
+
+
+/****************************************************************************************************************************
+														H T M L
+*****************************************************************************************************************************/
+body{
+  background: #efefef;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:15px;
+}
+
+
+/****************************************************************************************************************************
+													L A Y O U T   C S S
+*****************************************************************************************************************************/
+#page{
+  width: 971px;
+  padding: 0 12px 0 12px;
+  background: #FFF;
+}
+#header{
+  min-height: 197px;
+  background: #43443f url(../images/header_bg.jpg) repeat-x;
+}
+
+#footer{
+  min-height: 30px;
+  background: #43443f ;
+  padding-top:20px;
+  font-size:11px;
+  color:#FFF;
+}
+
+
+.login_links{
+  margin-top:20px;
+  font-size:11px;
+  color:#FFF;
+}
+#content{
+  padding:20px;
+  border: 1px solid #43443f;
+
+}
+
+#content h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 15px;
+  margin: 10px 0;
+  background-color:#d2d2d2;
+  color: #fff;
+}
+
+#logo{
+  display: block;
+  float: left;
+  width: 353px;
+  height: 167px;
+  background: url(../images/rails.png) no-repeat 0 10%;
+  font-size:25px;
+  font-weight:bold;
+  color:#FFF;
+  text-decoration:none;
+  padding: 20px 0 0 70px;
+}
+/****************************************************************************************************************************
+													E S T I L O S
+*****************************************************************************************************************************/
+
+a.login_links{
+  padding:0 0 0 20px;
+  font-size:11px;
+  font-weight:bold;
+  color:#FFF;
+  text-decoration:none;
+
+}
+
+a.login_links:hover{
+  text-decoration:underline
+}
+
+
+
+.notice{
+  color:#fff;
+  border: 1px solid #000000;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #B7E155;
+  width:600px;
+}
+
+
+
+/* The error box */
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: #EEFFEE;
+  display: inline;
+}
+
+.fieldWithErrors * {
+  border: 3px solid #fb7a18;
+}
+
+#error_explanation {
+  width: 400px;
+  border: 1px solid #fb7a18;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: :#d2d2d2;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color:darkred;
+  color: #fff;
+}
+
+#error_explanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+#error_explanation ul {
+  margin: 15px 0 10px 25px;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style:disc;
+}
+
