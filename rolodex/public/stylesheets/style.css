@@ -32,6 +32,10 @@ body{
   padding: 0 12px 0 12px;
   background: #FFF;
 }
+
+.page_contact{
+  width: 96% !important;
+}
 #header{
   min-height: 197px;
   background: #43443f url(../images/header_bg.jpg) repeat-x;
@@ -40,7 +44,8 @@ body{
 #footer{
   min-height: 30px;
   background: #43443f ;
-  padding-top:20px;
+  padding: 20px 0 0 20px;
+
   font-size:11px;
   color:#FFF;
 }
@@ -72,12 +77,16 @@ body{
   float: left;
   width: 353px;
   height: 167px;
-  background: url(../images/rails.png) no-repeat 0 10%;
-  font-size:25px;
+  background: url(../images/rails.png) no-repeat 3% 10%;
+  font-size:20px;
   font-weight:bold;
   color:#FFF;
   text-decoration:none;
   padding: 20px 0 0 70px;
+}
+
+#login{
+   width: 320px;
 }
 /****************************************************************************************************************************
 													E S T I L O S
@@ -100,7 +109,6 @@ a.login_links:hover{
 
 .notice{
   color:#fff;
-  border: 1px solid #000000;
   padding: 7px;
   padding-bottom: 12px;
   margin-bottom: 20px;
@@ -155,3 +163,55 @@ a.login_links:hover{
   list-style:disc;
 }
 
+/*****************************************************************************************************************************************
+*																	ESTILO PARA LA TABLA                       						     *
+*****************************************************************************************************************************************/
+.tableTopLeft{
+	background-image:url(../images/table/table_top_left.gif);
+	background-repeat:no-repeat;
+	height: 20px;
+	width: 10px;
+}
+.tableTop{
+	background-image:url(../images/table/table_top.gif);
+	background-repeat:repeat-x;
+	height: 20px;
+}
+.tableTopRight{
+	background-image:url(../images/table/table_top_right.gif);
+	background-repeat: no-repeat;
+	height: 20px;
+	width: 10px;
+}
+.tableLeft{
+	background-image:url(../images/table/table_left.gif);
+	background-repeat:repeat-y;
+	width: 10px;
+}
+.tableRight{
+	background-image:url(../images/table/table_right.gif);
+	background-repeat:repeat-y;
+	width: 10px;
+}
+.tableBottomLeft{
+	background-image:url(../images/table/table_bottom_left.gif);
+	background-repeat:no-repeat;
+	height: 50px;
+	width: 10px;
+}
+.tableBottom{
+	background-image:url(../images/table/table_bottom.gif);
+	background-repeat:repeat-x;
+	height: 50px;
+}
+.tableBottomRight{
+	background-image:url(../images/table/table_bottom_right.gif);
+	background-repeat: no-repeat;
+	height: 50px;
+	width: 10px;
+}
+.titulo_table{
+	font-size: 15px;
+	font-weight: bold;
+		font-family:Arial,verdana, Helvetica, sans-serif;
+}
