@@ -10,14 +10,17 @@
     = csrf_meta_tag
 
   %body
-    #page.centered
+    
+    #page{:class => "centered #{@with_page}"}
       #header
-        =link_to "Contact list",root_path , :id=>"logo"
+        =link_to "Rolodex Contacts Management",root_path , :id=>"logo"
         -if user_signed_in?
-          = link_to 'Contacts', contacts_path , :class=>'login_links'
-          = link_to 'Log out', destroy_user_session_path, :class=>'login_links'
+          = link_to 'My Contacts', contacts_path , :class=>'login_links'
+          =link_to "#{current_user.email} (edit password)",edit_user_registration_path, :class=>'login_links'
+          =link_to " log out",destroy_user_session_path, :class=>'login_links'
         -else
-          = link_to '>Sign in', new_user_session_path, :class=>'login_links'
+          = link_to '| Sign in', new_user_session_path, :class=>'login_links'
+          = link_to '| Sign up', new_user_registration_path, :class=>'login_links'
 
       #content
         - if flash[:notice]
@@ -27,4 +30,4 @@
         =yield
 
       #footer
-        = raw "&copy; 2010 Contact list  powered by Sergio Aguirre "
+        = raw "&copy; 2010 Rolodex  powered by Sergio Aguirre "

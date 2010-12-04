@@ -1,9 +1,10 @@
 %h1
   Wellcome to Contact list
 %br/
-=current_user.email
-=link_to "log out>>",destroy_user_session_path
 %br/
+-@contacts.each do |contact|
+  =contact.name
+  %br/
 %p
   The Best  way to manage your contact information, why facebook? , why hi-5, thats  boring,
   Lest try!!.
