@@ -16,11 +16,11 @@
         =link_to "Rolodex Contacts Management",root_path , :id=>"logo"
         -if user_signed_in?
           = link_to 'My Contacts', contacts_path , :class=>'login_links'
-          =link_to "#{current_user.email} (edit password)",edit_user_registration_path, :class=>'login_links'
+          =link_to "#{current_user.email} (edit)",edit_user_registration_path, :class=>'login_links'
           =link_to " log out",destroy_user_session_path, :class=>'login_links'
         -else
-          = link_to '| Sign in', new_user_session_path, :class=>'login_links'
-          = link_to '| Sign up', new_user_registration_path, :class=>'login_links'
+          = link_to 'Sign in', new_user_session_path, :class=>'login_links'
+          = link_to 'Sign up', new_user_registration_path, :class=>'login_links'
 
       #content
         - if flash[:notice]
