@@ -12,7 +12,19 @@ gem "rails3-generators", :group => :development
 
 group :test do
   gem "shoulda"
-  gem "rspec-rails", "2.0.0"
+  gem "rspec-rails"
   gem "autotest"
   gem "factory_girl_rails"
+  gem "faker"
+  gem "webrat"
+  gem "machinist"
+
+  gem 'capybara'#, :git => "git://github.com/jnicklas/capybara.git"
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'cucumber-rails'
+  gem 'cucumber'
+  gem 'spork'
+  gem 'launchy'    # So you can do Then show me the page
+
 end
