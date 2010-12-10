@@ -9,7 +9,7 @@ class Contact < ActiveRecord::Base
   validates  :last_name, :presence=>true
   validates  :user_id, :presence=>true
 
-  scope :search, lambda { |key|  where(["first_name LIKE ? OR middle_name LIKE ? OR last_name LIKE ?",key,key,key]) }
+  scope :search, lambda { |key,user_id|  where(["(first_name LIKE ? OR middle_name LIKE ? OR last_name LIKE ?) AND user_id=?",key,key,key,user_id]) }
 
   # add a self to a list
   def add_to_list(list)
