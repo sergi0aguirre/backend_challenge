@@ -2,7 +2,7 @@ class ContactsController < ApplicationController
   before_filter :authenticate_user!, :load
 
   def load
-    @total_pages=2
+    @total_pages=10
     @with_page='page_contact'
     @contacts = current_user.contacts.paginate :page => params[:page], :per_page => @total_pages
     @contact = Contact.new
