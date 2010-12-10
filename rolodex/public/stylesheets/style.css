@@ -116,6 +116,51 @@ a.login_links:hover{
   width:600px;
 }
 
+#contact_form{
+  display:none;
+  float:left;
+  width:400px;
+}
+
+#contact_list{
+  display:block;
+  float:right;
+  width:750px;
+}
+
+#search_form{
+  display:block;
+  float:right;
+  width:200px;
+}
+
+#column{
+  display:block;
+  float:left;
+  width:145px;
+}
+
+.table_headers{
+  background-color:darkred;
+  font-weight:bold;
+  color:#fff;
+}
+
+.draggable{
+  cursor:move;
+}
+
+#loading{
+  left: 40%;
+  padding: 20px;
+  position: fixed;
+  top: 50%;
+  z-index: 10000;
+}
+.hidden{
+  display: none;
+}
+
 
 
 /* The error box */
@@ -130,16 +175,18 @@ a.login_links:hover{
   border: 3px solid #fb7a18;
 }
 
-#error_explanation {
+#error_explanation ,
+#errorExplanation {
   width: 400px;
   border: 1px solid #fb7a18;
   padding: 7px;
   padding-bottom: 12px;
   margin-bottom: 20px;
-  background-color: :#d2d2d2;
+  background-color: #fff;
 }
 
-#error_explanation h2 {
+#error_explanation h2,
+#errorExplanation h2 {
   text-align: left;
   font-weight: bold;
   padding: 5px 5px 5px 15px;
@@ -149,16 +196,19 @@ a.login_links:hover{
   color: #fff;
 }
 
-#error_explanation p {
+#error_explanation p,
+#errorExplanation p {
   color: #333;
   margin-bottom: 0;
   padding: 5px;
 }
-#error_explanation ul {
+#error_explanation ul,
+#errorExplanation  ul {
   margin: 15px 0 10px 25px;
 }
 
-#error_explanation ul li {
+#error_explanation ul li,
+#errorExplanation ul li {
   font-size: 12px;
   list-style:disc;
 }

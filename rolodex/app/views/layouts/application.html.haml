@@ -4,9 +4,11 @@
 
     %meta{ 'http-equiv' => 'Content-Type', :charset=>"utf-8"}
     %title
-      = h(yield(:title)) || "Rolodex"
+      = "Rolodex"
     = stylesheet_link_tag :all
+    = yield :styles
     = javascript_include_tag :defaults
+    = yield :scripts
     = csrf_meta_tag
 
   %body
@@ -31,3 +33,5 @@
 
       #footer
         = raw "&copy; 2010 Rolodex  powered by Sergio Aguirre "
+        
+      = image_tag('loading.gif', :id => "loading", :class=> "hidden")
