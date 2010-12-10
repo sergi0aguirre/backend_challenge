@@ -1,0 +1,26 @@
+!=table_up('Contacts')
+#column.table_headers
+  Picture
+#column.table_headers
+  First Name
+#column.table_headers
+  Middle Name
+#column.table_headers
+  Last Name
+#columns.table_headers
+  Actions
+.clear_both
+-@contacts.each do |contact|
+  %div.draggable
+    #column
+      X
+    #column
+      = contact.first_name
+    #column
+      = contact.middle_name
+    #column
+      = contact.last_name
+    #column
+      = link_to "Edit ", edit_contact_path(contact), :remote => true, :class => :conctac_edit
+      = link_to " | Destroy", contact, :remote => true, :confirm => 'Are you sure?', :method => :delete
+!=table_down

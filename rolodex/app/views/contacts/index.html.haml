@@ -1,14 +1,14 @@
 %h1
   Wellcome to Contact list
 %br/
+=link_to "Add new contact",new_contact_path, :id => "add_contact" , :remote => true
 %br/
--@contacts.each do |contact|
-  =contact.name
-  %br/
-%p
-  The Best  way to manage your contact information, why facebook? , why hi-5, thats  boring,
-  Lest try!!.
-
-
-  
-
+#search_form
+  = render :partial => "search_form"
+.clear_both
+#contact_form
+#contact_list
+  = render :partial => "contacts"
+.clear_both
+=content_for :scripts do
+  = javascript_include_tag 'contacts'

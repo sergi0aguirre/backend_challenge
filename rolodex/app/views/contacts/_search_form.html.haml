@@ -1,0 +1,5 @@
+-form_tag (search_path, :remote => true ,:id => "search") do
+    !=table_up("Search")
+    =text_field_tag 'key', ''
+    =link_to "Clear","",:id=>"clear_search"
+    !=table_down
