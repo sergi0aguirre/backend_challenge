@@ -3,7 +3,7 @@ class ContactsController < ApplicationController
 
   def load
     @with_page='page_contact'
-    @contacts = current_user.contacts
+    @contacts = current_user.contacts.paginate :page => params[:page], :per_page => 2
     @contact = Contact.new
   end
 
@@ -43,7 +43,8 @@ class ContactsController < ApplicationController
   end
 
   def search
-    @contacts=Contact.search("%"+params[:key]+"%",current_user.id)
+    key=params[:key] || ""
+    @contacts=Contact.search("%"+key+"%",current_user.id).paginate :page => params[:page], :per_page => 2
   end
 end
 
