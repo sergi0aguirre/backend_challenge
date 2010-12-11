@@ -1,27 +1,27 @@
 =will_paginate @contacts, :params => {:key => params[:key],:action=>"index", :controller=>"contacts"}
 !=table_up('Contacts')
-#column.table_headers
+.table_headers
   Picture
-#column.table_headers
+.table_headers
   First Name
-#column.table_headers
+.table_headers
   Middle Name
-#column.table_headers
+.table_headers
   Last Name
-#columns.table_headers
+.table_headers
   Actions
 .clear_both
 -@contacts.each do |contact|
   %div.draggable
-    #column
+    .column
       = image_tag contact.photo.url(:thumb)
-    #column
+    .column
       = contact.first_name
-    #column
+    .column
       = contact.middle_name
-    #column
+    .column
       = contact.last_name
-    #column
+    .column
       = link_to "Edit ", edit_contact_path(contact), :remote => true, :class => :conctac_edit
-      = link_to " | Destroy", contact, :remote => true, :confirm => 'Are you sure?', :method => :delete, :class => :conctac_destroy
+      = link_to " | Delete", contact, :remote => true, :confirm => 'Are you sure?', :method => :delete, :class => :conctac_destroy
 !=table_down

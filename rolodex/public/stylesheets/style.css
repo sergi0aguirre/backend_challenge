@@ -141,13 +141,16 @@ a.login_links:hover{
   width:200px;
 }
 
-#column{
+.column{
   display:block;
   float:left;
   width:145px;
 }
 
 .table_headers{
+  display:block;
+  float:left;
+  width:145px;
   background-color:darkred;
   font-weight:bold;
   color:#fff;
