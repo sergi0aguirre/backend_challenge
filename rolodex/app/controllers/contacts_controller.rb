@@ -13,6 +13,10 @@ class ContactsController < ApplicationController
 
   def new
     @contact = Contact.new
+    respond_to do |format|
+      format.html { redirect_to contacts_path}
+      format.js
+    end
   end
 
   def create
@@ -25,15 +29,19 @@ class ContactsController < ApplicationController
       stored=true
     end
     responds_to_parent do
-        render :update do |page|
-          page << ajax_contact_form(stored)
-        end
+      render :update do |page|
+        page << ajax_contact_form(stored)
       end
+    end
 
   end
    
   def edit
     @contact = Contact.find(params[:id])
+    respond_to do |format|
+      format.html { redirect_to contacts_path}
+      format.js
+    end
   end
 
   def update
@@ -45,10 +53,10 @@ class ContactsController < ApplicationController
       stored=true
     end
     responds_to_parent do
-        render :update do |page|
-          page << ajax_contact_form(stored)
-        end
+      render :update do |page|
+        page << ajax_contact_form(stored)
       end
+    end
   end
 
   def destroy
@@ -61,6 +69,6 @@ class ContactsController < ApplicationController
   def search
     key=params[:key] || ""
     @contacts=Contact.search("%"+key+"%",current_user.id).paginate :page => params[:page], :per_page => @total_pages
-    end
   end
+end
 
