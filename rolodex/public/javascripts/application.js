@@ -1,10 +1,11 @@
 $(document).ready(function(){
+  /*Show/hide loading everytime that we call ajax,*/
    $("#loading").bind("ajaxSend", function(){
      $(this).show();
    }).bind("ajaxComplete", function(){
      $(this).hide();
-     /*Refresh the ajax pagination everytime that we call ajax*/
-     $('.pagination a').attr('data-remote', 'true');
+     /*Refresh the remote pagination everytime that we call ajax*/
+      set_remote_page_links();
   });
 
 });

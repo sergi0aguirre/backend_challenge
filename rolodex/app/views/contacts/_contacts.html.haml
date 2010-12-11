@@ -1,4 +1,4 @@
-=will_paginate @contacts, :params => {:key => params[:key]}
+=will_paginate @contacts, :params => {:key => params[:key],:action=>"index", :controller=>"contacts"}
 !=table_up('Contacts')
 #column.table_headers
   Picture
@@ -14,7 +14,7 @@
 -@contacts.each do |contact|
   %div.draggable
     #column
-      X
+      = image_tag contact.photo.url(:thumb)
     #column
       = contact.first_name
     #column
@@ -23,5 +23,5 @@
       = contact.last_name
     #column
       = link_to "Edit ", edit_contact_path(contact), :remote => true, :class => :conctac_edit
-      = link_to " | Destroy", contact, :remote => true, :confirm => 'Are you sure?', :method => :delete
+      = link_to " | Destroy", contact, :remote => true, :confirm => 'Are you sure?', :method => :delete, :class => :conctac_destroy
 !=table_down

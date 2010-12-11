@@ -23,12 +23,14 @@
         -else
           = link_to 'Sign in', new_user_session_path, :class=>'login_links'
           = link_to 'Sign up', new_user_registration_path, :class=>'login_links'
-
+      .clear_both
       #content
-        - if flash[:notice]
-          .notice= flash[:notice]
-        - if flash[:error]
-          .error= flash[:error]
+        .notice
+          - if flash[:notice]
+            = flash[:notice]
+        .error
+          - if flash[:error]
+            = flash[:error]
         =yield
 
       #footer

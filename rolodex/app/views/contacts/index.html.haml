@@ -1,8 +1,8 @@
-%h1
-  Wellcome to Contact list
-%br/
-=link_to "Add new contact",new_contact_path, :id => "add_contact" , :remote => true
-%br/
+#wellcome_contacts
+  %h1
+    Wellcome to Contact list
+  %br/
+  = link_to "Add new contact",new_contact_path, :id => "add_contact" , :remote => true
 #search_form
   = render :partial => "search_form"
 .clear_both

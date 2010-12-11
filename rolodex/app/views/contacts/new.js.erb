@@ -1,4 +1,2 @@
-$("#contact_form").hide();
-$("#contact_form").html("<%= escape_javascript(render(:partial => "new_or_edit"))%>");
-$("#contact_form").show(400);
-$("#cancel_form_button").click(function() {$('#contact_form').hide()});
+refresh_form("<%= escape_javascript(render(:partial => "new_or_edit"))%>");
+send_current_page();

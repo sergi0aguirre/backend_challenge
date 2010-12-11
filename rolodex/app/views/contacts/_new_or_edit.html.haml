@@ -1,5 +1,5 @@
 - title= @contact.new_record? ? 'Create new contact' : 'Update contact'
-- form_for (@contact,:remote => true)  do |f|
+- form_for (@contact, :format => :js,  :html => {:target=>:frame, :multipart => true })  do |f|
   #contact_errors{:style => "display:none"}
   !=table_up(title)
   = f.label 'name'
@@ -14,7 +14,11 @@
   %br/
   = f.text_field :last_name, :size => "20"
   %br/
+  = image_tag @contact.photo.url(:small)
+  %br/
+  = f.file_field :photo
+  %br/
   = f.submit @contact.new_record? ? 'Save' : 'Update'
   %input{:value => "Cancel",:type => "button",:id => "cancel_form_button"}
   !=table_down
-        
+%iframe{:id => 'frame',:name => "frame", :src => "about:blank"}

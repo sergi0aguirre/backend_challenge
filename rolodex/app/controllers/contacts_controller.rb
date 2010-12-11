@@ -18,22 +18,37 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(params[:contact])
     @contact.user=current_user
+    stored=false
     if @contact.save
       flash[:notice] = "Successfully created contact."
       @contacts = current_user.contacts.paginate :page => params[:page], :per_page => @total_pages
+      stored=true
     end
-  end
+    responds_to_parent do
+        render :update do |page|
+          page << ajax_contact_form(stored)
+        end
+      end
 
+  end
+   
   def edit
     @contact = Contact.find(params[:id])
   end
 
   def update
+    stored=false
     @contact = Contact.find(params[:id])
     if @contact.update_attributes(params[:contact])
       flash[:notice] = "Successfully updated contact."
       @contacts = current_user.contacts.paginate :page => params[:page], :per_page => @total_pages
+      stored=true
     end
+    responds_to_parent do
+        render :update do |page|
+          page << ajax_contact_form(stored)
+        end
+      end
   end
 
   def destroy
@@ -46,6 +61,6 @@ class ContactsController < ApplicationController
   def search
     key=params[:key] || ""
     @contacts=Contact.search("%"+key+"%",current_user.id).paginate :page => params[:page], :per_page => @total_pages
+    end
   end
-end
 
