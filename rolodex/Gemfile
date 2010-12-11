@@ -8,6 +8,9 @@ gem 'devise'
 gem 'haml'
 gem 'hpricot'
 gem 'ruby_parser'
+gem 'ruby-debug'
+gem "will_paginate", "3.0.pre"
+gem 'paperclip'
 gem "rails3-generators", :group => :development
 
 group :test do
