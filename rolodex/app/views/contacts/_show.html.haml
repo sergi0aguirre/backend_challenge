@@ -1,0 +1,22 @@
+!=table_up('Contact Details')
+%strong
+  name
+%br/
+= @contact.first_name
+%br/
+%strong
+  middle name
+%br/
+= @contact.middle_name
+%br/
+%strong
+  last name
+%br/
+=@contact.last_name
+%br/
+=image_tag @contact.photo.url(:small)
+%br/
+%br/
+= link_to "Edit ", edit_contact_path(@contact), :remote => true, :class => :conctac_edit
+= link_to " | Delete", @contact, :remote => true, :confirm => 'Are you sure?', :method => :delete, :class => :conctac_destroy
+!=table_down
