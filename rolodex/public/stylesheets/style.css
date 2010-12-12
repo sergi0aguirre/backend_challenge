@@ -20,7 +20,7 @@
 body{
   background: #efefef;
   font-family:Arial, Helvetica, sans-serif;
-  font-size:15px;
+  font-size:12px;
 }
 
 
@@ -37,7 +37,7 @@ body{
   width: 96% !important;
 }
 #header{
-  min-height: 110px;
+  min-height: 100px;
   background: #43443f url(../images/header_bg.jpg) repeat-x;
 }
 
@@ -111,26 +111,43 @@ a.login_links:hover{
   width:145px;
 }
 
+.picture_column{
+  display:block;
+  float:left;
+  width:100px;
+}
+
+.name_column{
+  display:block;
+  float:left;
+  width:500px;
+}
+
+.name_column a{
+  color: #43443f;
+  font-weight: bold;
+  text-decoration:none;
+}
+
 .notice{
   color:#fff;
   padding: 7px;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
   background-color: #B7E155;
   width:600px;
   display:none;
+  margin: 0 auto;
 }
 
 #contact_form{
   display:none;
   float:left;
-  width:400px;
+  width:500px;
 }
 
 #contact_list{
   display:block;
   float:right;
-  width:750px;
+  width:650px;
 }
 
 #wellcome_contacts{
@@ -154,25 +171,36 @@ a.login_links:hover{
 #contact_paginate{
   display:block;
   float:left;
-  width:300px;
+  width:295px;
 }
 
 #contact_select{
   display:block;
   float:right;
-  width:425px;
+  width:355px;
   height: 30px;
 }
 
 #contact_select a{
   padding-right:10px;
 }
-
-
-.table_headers{
+.contact_left{
+  margin-top:10px;
   display:block;
   float:left;
-  width:145px;
+  width:110px;
+}
+.contact_right{
+  margin-top:10px;
+  display:block;
+  float:right;
+  width:360px;
+}
+
+.contact_left img {
+  border:solid 3px #d2d2d2;
+}
+.table_headers{
   background-color:darkred;
   font-weight:bold;
   color:#fff;
@@ -182,6 +210,8 @@ a.login_links:hover{
   cursor:move;
   min-height: 35px;
 }
+
+
 
 #loading{
   left: 40%;

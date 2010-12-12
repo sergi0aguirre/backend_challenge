@@ -7,28 +7,10 @@
   =will_paginate @contacts, :params => {:key => params[:key],:order => params[:order],:action=>"index", :controller=>"contacts"}
 .clear_both
 !=table_up('Contacts')
-.table_headers
+.picture_column.table_headers
   Picture
-.table_headers
-  First Name
-.table_headers
-  Middle Name
-.table_headers
-  Last Name
-.table_headers
-  Actions
+.name_column.table_headers
+  Full Name
 .clear_both
--@contacts.each do |contact|
-  %div.draggable
-    .column
-      %input{ :id =>"#{contact.id}",:type => "checkbox" ,:class => "check_contact"}
-      = image_tag contact.photo.url(:thumb)
-    .column
-      = contact.first_name
-    .column
-      = contact.middle_name
-    .column
-      = contact.last_name
-    .column
-      = link_to "show ", contact_path(contact), :remote => true, :class => :conctac_edit
+=render @contacts
 !=table_down

@@ -1,22 +1,16 @@
 !=table_up('Contact Details')
-%strong
-  name
-%br/
-= @contact.first_name
-%br/
-%strong
-  middle name
-%br/
-= @contact.middle_name
-%br/
-%strong
-  last name
-%br/
-=@contact.last_name
-%br/
-=image_tag @contact.photo.url(:small)
-%br/
-%br/
+.contact_right
+  %strong
+    Name
+  %br/
+  = @contact.first_name
+  = @contact.middle_name
+  =@contact.last_name
+.contact_left
+  =image_tag @contact.photo.url(:small)
+  %br/
+.clear_both
 = link_to "Edit ", edit_contact_path(@contact), :remote => true, :class => :conctac_edit
+= link_to " | Export as Vcard", edit_contact_path(@contact), :remote => true, :class => :conctac_edit
 = link_to " | Delete", @contact, :remote => true, :confirm => 'Are you sure?', :method => :delete, :class => :conctac_destroy
 !=table_down

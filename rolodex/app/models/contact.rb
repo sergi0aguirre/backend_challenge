@@ -10,10 +10,11 @@ class Contact < ActiveRecord::Base
   validates  :last_name, :presence=>true
   validates  :user_id, :presence=>true
   #Paperclip
-  has_attached_file :photo, :styles => {:thumb=> "20x20#",
+  has_attached_file :photo, :styles => {:thumb=> "30x30#",
     :small  => "100x100>" },
-    :url  => "/assets/products/:id/:style/:basename.:extension",
-    :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"
+    :url  => "/assets/photos/:id/:style/:basename.:extension",
+    :path => ":rails_root/public/assets/photos/:id/:style/:basename.:extension",
+    :default_url => "missing_:style.jpg"
 
   scope :search, lambda { |key,user_id|  where(["(first_name LIKE ? OR middle_name LIKE ? OR last_name LIKE ?) AND user_id=?",key,key,key,user_id]) }
   scope :where_ids, lambda { |ids,user_id|  where(["id IN (#{ids}) AND user_id=?",user_id]) }
@@ -23,6 +24,9 @@ class Contact < ActiveRecord::Base
 
   end
 
+  def full_name
+    "#{first_name} #{middle_name} #{last_name}"
+  end
   #List the contacts
   def self.filter(key,order,user)
     Contact.search("%"+key+"%",user).order(order)
