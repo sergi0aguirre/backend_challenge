@@ -9,6 +9,10 @@ class ContactsController < ApplicationController
   end
 
   def index
+    key=params[:key] || ""
+    unless key == ""
+      @contacts=Contact.search("%"+key+"%",current_user.id).paginate :page => params[:page], :per_page => @total_pages
+    end
   end
 
   def new
