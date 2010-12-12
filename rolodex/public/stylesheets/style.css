@@ -29,7 +29,7 @@ body{
 *****************************************************************************************************************************/
 #page{
   width: 971px;
-  padding: 0 12px 0 12px;
+  padding: 0 12px;
   background: #FFF;
 }
 
@@ -37,15 +37,15 @@ body{
   width: 96% !important;
 }
 #header{
-  min-height: 100px;
+  min-height: 65px;
   background: #43443f url(../images/header_bg.jpg) repeat-x;
+  border-bottom:solid 7px #d2d3d2;
 }
 
 #footer{
   min-height: 30px;
   background: #43443f ;
   padding: 20px 0 0 20px;
-
   font-size:11px;
   color:#FFF;
 }
@@ -57,7 +57,7 @@ body{
   color:#FFF;
 }
 #content{
-  padding:10px;
+  padding:5px 10px;
   border: 1px solid #43443f;
 
 }
@@ -76,13 +76,13 @@ body{
   display: block;
   float: left;
   width: 353px;
-  height: 80px;
+  height: 55px;
   background: url(../images/rails.png) no-repeat 3% 10%;
   font-size:20px;
   font-weight:bold;
   color:#FFF;
   text-decoration:none;
-  padding: 20px 0 0 70px;
+  padding: 10px 0 0 70px;
 }
 
 #login{
