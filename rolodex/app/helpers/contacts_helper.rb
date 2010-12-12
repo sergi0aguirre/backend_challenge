@@ -6,7 +6,7 @@ module ContactsHelper
       txtpage << "$('.notice').html('"+escape_javascript(flash[:notice])+"');"
       txtpage << "$('.notice').show(300);"
       txtpage << "$('#contact_list').html('"+escape_javascript( render(:partial => 'contacts') )+"');"
-      txtpage << "$('#contact_form').hide(300);"
+      txtpage << "$('#contact_form').html('"+escape_javascript( render(:partial => 'show') )+"');"
     else
       txtpage << "$('.notice').hide(300);"
       txtpage << "$('#contact_form').html('"+escape_javascript( render(:partial => 'new_or_edit') )+"');"

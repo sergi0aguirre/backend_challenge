@@ -35,6 +35,13 @@ function refresh_form(txt){
   $("#cancel_form_button").click(function() {
     $('#contact_form').hide()
   });
+  $("#cancel_form_button_edit").click(function() {
+    $.ajax({
+        type: "get",
+        dataType: "script",
+        url: $(this).attr('rel')
+      });
+  });
 }
 /*Refresh Links functionalities*/
 function set_links_functionalities(){

@@ -18,7 +18,10 @@
     = f.file_field :photo
     %br/
     = f.submit @contact.new_record? ? 'Save' : 'Update'
-    %input{:value => "Cancel",:type => "button",:id => "cancel_form_button"}
+    -if @contact.new_record?
+      %input{:value => "Cancel",:type => "button",:id => "cancel_form_button"}
+    -else
+      %input{:value => "Cancel",:type => "button",:id => "cancel_form_button_edit", :rel => "#{contact_path(@contact)}"}
   .contact_left
     = image_tag @contact.photo.url(:small)
   .clear_both
