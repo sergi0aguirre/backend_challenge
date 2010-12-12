@@ -9,8 +9,8 @@ $(document).ready(function(){
     return false;
   });
   /*  ------ */
-  /*Set Remote links for  pagination*/
-   set_remote_page_links();
+  /*Refresh Links functionalities*/
+  set_links_functionalities();
   /*Sent The current contact list page  when we update the contact (Ajax iframe upload)*/
   send_current_page();
 });
@@ -31,8 +31,47 @@ function refresh_form(txt){
     $('#contact_form').hide()
   });
 }
-/*Set Remote links for  pagination*/
-function set_remote_page_links(){
+/*Refresh Links functionalities*/
+function set_links_functionalities(){
+  var selected_contacts;
+  var ids= new Array();
+  /*Set Remote links for  pagination*/
   $('#contact_list .pagination a').attr('data-remote', 'true');
-  $('#contact_list .conctac_destroy').click(function(){ $("#contact_form").hide();});
+  /*Hide the form when we click on delete*/
+  $('#contact_list .conctac_destroy').click(function(){
+    $("#contact_form").hide();
+  });
+  /*Set the functionalities for Selecte all and  Select none contacts*/
+  $("#selectall").click(function(){
+    $(".check_contact").attr('checked','true');
+    return false;
+  });
+  $("#selectnone").click(function(){
+    $(".check_contact").removeAttr('checked');
+    return false;
+  });
+  /*ajax functionality for delete all contacts*/
+  $("#deletecontacts").click(function(){
+    selected_contacts=contacts=$("#contact_list").find("input:checked")
+    if (selected_contacts.length > 0){
+      selected_contacts.each(function(){
+        ids= new Array()
+        $("#contact_list").find("input:checked").each(function(){
+          ids.push($(this).attr("id"))
+        })
+      });
+      $.ajax({
+        type: "post",
+        url: "/contacts/delete_selection",
+        data:"ids="+ids,
+        success: function(data){
+          $("#contact_list").html(data);
+        }
+      });
+  }else{
+    alert("You should Select at least one contact");
+  }
+  return false;
+  });
+
 }

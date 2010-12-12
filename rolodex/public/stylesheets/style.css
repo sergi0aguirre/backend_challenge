@@ -86,7 +86,7 @@ body{
 }
 
 #login{
-   width: 320px;
+  width: 320px;
 }
 /****************************************************************************************************************************
 													E S T I L O S
@@ -105,7 +105,11 @@ a.login_links:hover{
   text-decoration:underline
 }
 
-
+.column{
+  display:block;
+  float:left;
+  width:145px;
+}
 
 .notice{
   color:#fff;
@@ -141,11 +145,29 @@ a.login_links:hover{
   width:200px;
 }
 
-.column{
+#wellcome_contacts{
   display:block;
   float:left;
-  width:145px;
+  width:200px;
 }
+
+#contact_paginate{
+  display:block;
+  float:left;
+  width:400px;
+}
+
+#contact_select{
+  display:block;
+  float:right;
+  width:340px;
+  height: 30px;
+}
+
+#contact_select a{
+  padding-right:10px;
+}
+
 
 .table_headers{
   display:block;
@@ -173,9 +195,9 @@ a.login_links:hover{
 }
 
 #frame{
-   width:1px;
-   height:1px;
-   border:0px;
+  width:1px;
+  height:1px;
+  border:0px;
 }
 
 /* The error box */
@@ -233,51 +255,51 @@ a.login_links:hover{
 *																	ESTILO PARA LA TABLA                       						     *
 *****************************************************************************************************************************************/
 .tableTopLeft{
-	background-image:url(../images/table/table_top_left.gif);
-	background-repeat:no-repeat;
-	height: 20px;
-	width: 10px;
+  background-image:url(../images/table/table_top_left.gif);
+  background-repeat:no-repeat;
+  height: 20px;
+  width: 10px;
 }
 .tableTop{
-	background-image:url(../images/table/table_top.gif);
-	background-repeat:repeat-x;
-	height: 20px;
+  background-image:url(../images/table/table_top.gif);
+  background-repeat:repeat-x;
+  height: 20px;
 }
 .tableTopRight{
-	background-image:url(../images/table/table_top_right.gif);
-	background-repeat: no-repeat;
-	height: 20px;
-	width: 10px;
+  background-image:url(../images/table/table_top_right.gif);
+  background-repeat: no-repeat;
+  height: 20px;
+  width: 10px;
 }
 .tableLeft{
-	background-image:url(../images/table/table_left.gif);
-	background-repeat:repeat-y;
-	width: 10px;
+  background-image:url(../images/table/table_left.gif);
+  background-repeat:repeat-y;
+  width: 10px;
 }
 .tableRight{
-	background-image:url(../images/table/table_right.gif);
-	background-repeat:repeat-y;
-	width: 10px;
+  background-image:url(../images/table/table_right.gif);
+  background-repeat:repeat-y;
+  width: 10px;
 }
 .tableBottomLeft{
-	background-image:url(../images/table/table_bottom_left.gif);
-	background-repeat:no-repeat;
-	height: 50px;
-	width: 10px;
+  background-image:url(../images/table/table_bottom_left.gif);
+  background-repeat:no-repeat;
+  height: 50px;
+  width: 10px;
 }
 .tableBottom{
-	background-image:url(../images/table/table_bottom.gif);
-	background-repeat:repeat-x;
-	height: 50px;
+  background-image:url(../images/table/table_bottom.gif);
+  background-repeat:repeat-x;
+  height: 50px;
 }
 .tableBottomRight{
-	background-image:url(../images/table/table_bottom_right.gif);
-	background-repeat: no-repeat;
-	height: 50px;
-	width: 10px;
+  background-image:url(../images/table/table_bottom_right.gif);
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 10px;
 }
 .titulo_table{
-	font-size: 15px;
-	font-weight: bold;
-		font-family:Arial,verdana, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  font-family:Arial,verdana, Helvetica, sans-serif;
 }

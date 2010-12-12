@@ -5,7 +5,7 @@ $(document).ready(function(){
    }).bind("ajaxComplete", function(){
      $(this).hide();
      /*Refresh the remote pagination everytime that we call ajax*/
-      set_remote_page_links();
+      set_links_functionalities();
   });
 
 });

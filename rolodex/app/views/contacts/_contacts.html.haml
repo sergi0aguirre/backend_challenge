@@ -1,4 +1,10 @@
-=will_paginate @contacts, :params => {:key => params[:key],:action=>"index", :controller=>"contacts"}
+#contact_select
+  = link_to "Select all","", :id => :selectall
+  = link_to "Select none","", :id => :selectnone
+  = link_to "Delete selected contacts","", :id => :deletecontacts
+#contact_paginate
+  =will_paginate @contacts, :params => {:key => params[:key],:action=>"index", :controller=>"contacts"}
+.clear_both
 !=table_up('Contacts')
 .table_headers
   Picture
@@ -14,6 +20,7 @@
 -@contacts.each do |contact|
   %div.draggable
     .column
+      %input{ :id =>"#{contact.id}",:type => "checkbox" ,:class => "check_contact"}
       = image_tag contact.photo.url(:thumb)
     .column
       = contact.first_name

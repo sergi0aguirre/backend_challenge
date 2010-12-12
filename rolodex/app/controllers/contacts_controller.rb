@@ -69,6 +69,19 @@ class ContactsController < ApplicationController
   def search
     key=params[:key] || ""
     @contacts=Contact.search("%"+key+"%",current_user.id).paginate :page => params[:page], :per_page => @total_pages
+    respond_to do |format|
+      format.js {render :action=> :index}
+    end
   end
+
+  def delete_selection
+    contacts=Contact.where_ids(params[:ids],current_user)
+    contacts.delete_all
+    @contacts = current_user.contacts.paginate :page => params[:page], :per_page => @total_pages
+    respond_to do |format|
+      format.js {render :partial => 'contacts'}
+    end
+  end
+
 end
 
