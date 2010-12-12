@@ -22,4 +22,10 @@ class Contact < ActiveRecord::Base
   def add_to_list(list)
 
   end
+
+  #List the contacts
+  def self.filter(key,order,user)
+    Contact.search("%"+key+"%",user).order(order)
+
+  end
 end

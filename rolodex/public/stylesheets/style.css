@@ -154,13 +154,13 @@ a.login_links:hover{
 #contact_paginate{
   display:block;
   float:left;
-  width:400px;
+  width:300px;
 }
 
 #contact_select{
   display:block;
   float:right;
-  width:340px;
+  width:425px;
   height: 30px;
 }
 

@@ -1,5 +1,6 @@
 -form_tag (contacts_path, :remote => true ,:id => 'search', :method =>'get') do
     !=table_up("Search")
     =text_field_tag 'key', ''
+    =hidden_field_tag 'order', ''
     =link_to "Clear","",:id=>"clear_search"
     !=table_down

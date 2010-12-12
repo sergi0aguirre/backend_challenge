@@ -8,6 +8,9 @@ $(document).ready(function(){
     $('#search').submit();
     return false;
   });
+
+  /*add Sort functionality to link*/
+  add_sort_functionality();
   /*  ------ */
   /*Refresh Links functionalities*/
   set_links_functionalities();
@@ -19,7 +22,9 @@ function send_current_page(){
   var page=$(".pagination em").html();
   var form=$("#contact_form form");
   var action=form.attr('action');
-  form.attr("action",action+'?page='+page);
+  var order=$("#order").val();
+  var searchkey=$("#key").val();
+  form.attr('action',action + '?page='+ page + '&order' + order + '&key' + searchkey);
 }
 
 /*Refresh the contact form div*/
@@ -68,10 +73,28 @@ function set_links_functionalities(){
           $("#contact_list").html(data);
         }
       });
-  }else{
-    alert("You should Select at least one contact");
-  }
-  return false;
+    }else{
+      alert("You should Select at least one contact");
+    }
+    return false;
+  });
+
+  add_sort_functionality();
+
+}
+
+function add_sort_functionality(){
+  $("#orderlink").click(function() {
+    var order;
+    if ($(this).html()== "Order A-Z"){
+      order="up"
+      $(this).html("Order Z-A");
+    }else{
+      order="down"
+    }
+    $('#order').val(order);
+    $('#search').submit();
+    return false;
   });
 
 }

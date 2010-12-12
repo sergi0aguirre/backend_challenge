@@ -4,15 +4,10 @@ class ContactsController < ApplicationController
   def load
     @total_pages=10
     @with_page='page_contact'
-    @contacts = current_user.contacts.paginate :page => params[:page], :per_page => @total_pages
-    @contact = Contact.new
+    load_contacts
   end
 
   def index
-    key=params[:key] || ""
-    unless key == ""
-      @contacts=Contact.search("%"+key+"%",current_user.id).paginate :page => params[:page], :per_page => @total_pages
-    end
   end
 
   def new
@@ -29,7 +24,7 @@ class ContactsController < ApplicationController
     stored=false
     if @contact.save
       flash[:notice] = "Successfully created contact."
-      @contacts = current_user.contacts.paginate :page => params[:page], :per_page => @total_pages
+      load_contacts
       stored=true
     end
     responds_to_parent do
@@ -53,7 +48,7 @@ class ContactsController < ApplicationController
     @contact = Contact.find(params[:id])
     if @contact.update_attributes(params[:contact])
       flash[:notice] = "Successfully updated contact."
-      @contacts = current_user.contacts.paginate :page => params[:page], :per_page => @total_pages
+      load_contacts
       stored=true
     end
     responds_to_parent do
@@ -67,7 +62,7 @@ class ContactsController < ApplicationController
     @contact = Contact.find(params[:id])
     @contact.destroy
     flash[:notice] = "Successfully destroyed contact."
-    @contacts = current_user.contacts.paginate :page => params[:page], :per_page => @total_pages
+    load_contacts
   end
 
   def search
@@ -89,3 +84,9 @@ class ContactsController < ApplicationController
 
 end
 
+def load_contacts
+    @ordertxt=params[:order]=="down" ? "Order A-Z" : "Order Z-A"
+    key=params[:key] || ""
+    order=params[:order]=="down" ? "first_name DESC" : "first_name ASC"
+    @contacts=Contact.filter(key,order,current_user.id).paginate :page => params[:page], :per_page => @total_pages
+end
