@@ -11,7 +11,7 @@ class ContactsController < ApplicationController
   end
 
   def show
-    @contact = Contact.find(params[:id])
+    @contact = user_contacts.where(:id=> params[:id]).first
     respond_to do |format|
       format.html { redirect_to contacts_path}
       format.js
@@ -19,7 +19,7 @@ class ContactsController < ApplicationController
   end
 
   def new
-    @contact = Contact.new
+    @contact = user_contacts.new()
     respond_to do |format|
       format.html { redirect_to contacts_path}
       format.js
@@ -27,8 +27,7 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = Contact.new(params[:contact])
-    @contact.user=current_user
+    @contact = user_contacts.new(params[:contact])
     stored=false
     if @contact.save
       flash[:notice] = "Successfully created contact."
@@ -44,16 +43,16 @@ class ContactsController < ApplicationController
   end
    
   def edit
-    @contact = Contact.find(params[:id])
+    @contact = user_contacts.find(params[:id])
     respond_to do |format|
       format.html { redirect_to contacts_path}
-      format.js
+      format.js  { render :action => :new }
     end
   end
 
   def update
     stored=false
-    @contact = Contact.find(params[:id])
+    @contact = user_contacts.find(params[:id])
     if @contact.update_attributes(params[:contact])
       flash[:notice] = "Successfully updated contact."
       stored=true
@@ -67,7 +66,7 @@ class ContactsController < ApplicationController
   end
 
   def destroy
-    @contact = Contact.find(params[:id])
+    @contact = user_contacts.find(params[:id])
     @contact.destroy
     flash[:notice] = "Successfully destroyed contact."
     load_contacts
@@ -96,6 +95,10 @@ class ContactsController < ApplicationController
     order= params[:order]=="down" ? "first_name DESC" : "first_name ASC"
     params[:page]= 1 if params[:page]=="null"
     @contacts=Contact.filter(key,order,current_user.id).paginate :page => params[:page], :per_page => @total_pages
+  end
+
+  def user_contacts
+      current_user.contacts
   end
 
 end

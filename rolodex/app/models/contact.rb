@@ -30,6 +30,5 @@ class Contact < ActiveRecord::Base
   #List the contacts
   def self.filter(key,order,user)
     Contact.search("%"+key+"%",user).order(order)
-
   end
 end
