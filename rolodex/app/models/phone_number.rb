@@ -10,6 +10,7 @@ class PhoneNumber < ActiveRecord::Base
 
   validates :area_code, :presence=>true
   validates :number , :presence=>true
+  validates :phone_type_id , :presence=>true
   validates_uniqueness_of :number, :scope => [:area_code, :contact_id]
 
   validates_format_of :area_code, :with => /^\d{3}$/,

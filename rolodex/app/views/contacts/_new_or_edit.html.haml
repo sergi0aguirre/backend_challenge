@@ -27,3 +27,6 @@
   .clear_both
   !=table_down
 %iframe{:id => 'frame',:name => "frame", :src => "about:blank"}
+- unless @contact.new_record?
+  #phone_number
+    = render :partial => "/phone_numbers/phone_numbers"

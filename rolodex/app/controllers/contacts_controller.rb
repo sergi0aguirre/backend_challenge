@@ -11,7 +11,8 @@ class ContactsController < ApplicationController
   end
 
   def show
-    @contact = user_contacts.where(:id=> params[:id]).first
+    @contact = Contact.where(:id=> params[:id]).first
+    load_extra_info(@contact)
     respond_to do |format|
       format.html { redirect_to contacts_path}
       format.js
@@ -19,7 +20,7 @@ class ContactsController < ApplicationController
   end
 
   def new
-    @contact = user_contacts.new()
+    @contact = Contact.new()
     respond_to do |format|
       format.html { redirect_to contacts_path}
       format.js
@@ -27,7 +28,8 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = user_contacts.new(params[:contact])
+    @contact = Contact.new(params[:contact])
+    @contact.user_id=current_user.id
     stored=false
     if @contact.save
       flash[:notice] = "Successfully created contact."
@@ -43,7 +45,8 @@ class ContactsController < ApplicationController
   end
    
   def edit
-    @contact = user_contacts.find(params[:id])
+    @contact = Contact.find(params[:id])
+    load_extra_info(@contact)
     respond_to do |format|
       format.html { redirect_to contacts_path}
       format.js  { render :action => :new }
@@ -52,7 +55,8 @@ class ContactsController < ApplicationController
 
   def update
     stored=false
-    @contact = user_contacts.find(params[:id])
+    @contact = Contact.find(params[:id])
+    load_extra_info(@contact)
     if @contact.update_attributes(params[:contact])
       flash[:notice] = "Successfully updated contact."
       stored=true
@@ -66,7 +70,7 @@ class ContactsController < ApplicationController
   end
 
   def destroy
-    @contact = user_contacts.find(params[:id])
+    @contact = Contact.find(params[:id])
     @contact.destroy
     flash[:notice] = "Successfully destroyed contact."
     load_contacts
@@ -80,7 +84,7 @@ class ContactsController < ApplicationController
   end
 
   def delete_selection
-    contacts=Contact.where_ids(params[:ids],current_user)
+    contacts=Contact.where_ids(params[:ids],current_user.id)
     contacts.delete_all
     load_contacts
     respond_to do |format|
@@ -97,8 +101,7 @@ class ContactsController < ApplicationController
     @contacts=Contact.filter(key,order,current_user.id).paginate :page => params[:page], :per_page => @total_pages
   end
 
-  def user_contacts
-      current_user.contacts
+  def load_extra_info(contact)
+    @phone_numbers=contact.phone_numbers
   end
-
 end

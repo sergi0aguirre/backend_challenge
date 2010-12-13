@@ -1,0 +1,21 @@
+- title= @phone_number.new_record? ? 'Create new phone number' : 'Edit phone number'
+=form_for @phone_number, :remote => true do |f|
+  =f.error_messages
+  !=table_up(title)
+  = f.label 'Area code'
+  = f.hidden_field :contact_id, :size => "20"
+  %br/
+  = f.text_field :area_code, :size => "20"
+  %br/
+  = f.label 'Number'
+  %br/
+  = f.text_field :number, :size => "20"
+  %br/
+  = f.label "Phone Type"
+  %br/
+  = f.select :phone_type_id, options_from_collection_for_select(@phone_number_types, "id", "name",@phone_number.phone_type_id.to_i), {:include_blank => true}
+  %br/
+  %br/
+  = f.submit @phone_number.new_record? ? 'Save' : 'Update'
+  %input{:value => "Cancel",:type => "button",:id => "phone_number_cancel", :rel => "#{phone_numbers_path(:contact_id => @phone_number.contact_id)}"}
+  !=table_down
