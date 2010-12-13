@@ -110,4 +110,20 @@ class ContactsController < ApplicationController
     @phone_numbers=contact.phone_numbers
     @addresses=contact.addresses
   end
+
+  def export_to_vcard
+    contact = Contact.find(params[:id])
+    card = contact.to_vcard
+    filename="contact_#{contact.id}.vcf"
+    send_data card, :filename => filename,
+      :type => 'text/directory'
+  end
+
+  def export_to_vcards
+    cards=current_user.contacts_to_vcards
+    filename="contacts_for_user#{current_user.id}.vcf"
+    send_data cards, :filename => filename,
+      :type => 'text/directory'
+  end
+  
 end

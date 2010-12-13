@@ -9,4 +9,13 @@ class User < ActiveRecord::Base
 
   has_many :lists
   has_many :contacts
+
+  def contacts_to_vcards
+    contacts=self.contacts
+    vcards=""
+    contacts.each do |contact|
+        vcards << contact.to_vcard
+    end
+    vcards
+  end
 end

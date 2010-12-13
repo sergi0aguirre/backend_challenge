@@ -27,8 +27,50 @@ class Contact < ActiveRecord::Base
   def full_name
     "#{first_name} #{middle_name} #{last_name}"
   end
+
+  def to_vcard
+    card=Vpim::Vcard.create
+
+    Vpim::Vcard::Maker.make2(card) do |maker|
+
+      maker.add_name do |name|
+        name.given = self.full_name
+      end
+
+      #Add the company name
+      company= self.company_name || ""
+      maker.add_company(company)
+
+      #Add the photo
+      picture=  SITE_URL+self.photo.url(:small) || ""
+      maker.add_picture(picture)
+
+      #Load all the addresses
+      addresses=self.addresses
+      addresses.each do |address|
+        maker.add_addr do |addr|
+          addr.location = address.address_type_name
+          addr.street = address.address
+          addr.locality = address.city
+          addr.region = address.state
+          addr.postalcode = address.zip
+        end
+      end
+      phones=self.phone_numbers
+      phones.each do |phone|
+        maker.add_tel(phone.full_number) do |tel|
+          tel.location =phone.phone_type_name
+          tel.preferred = true
+        end
+      end
+    end
+    card.to_s
+    
+  end
   #List the contacts
   def self.filter(key,order,user)
     Contact.search("%"+key+"%",user).order(order)
   end
+
+
 end

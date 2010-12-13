@@ -58,3 +58,7 @@ input,button,textarea,select,optgroup,option{
 input,button,textarea,select{
 	*font-size:100%;
 }
+
+a{
+  text-decoration: none;
+}

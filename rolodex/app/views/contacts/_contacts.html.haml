@@ -5,6 +5,8 @@
   = link_to "Delete selected contacts","", :id => :deletecontacts
 #contact_paginate
   =will_paginate @contacts, :params => {:key => params[:key],:order => params[:order],:action=>"index", :controller=>"contacts"}
+  %br/
+  =link_to "> Expor all to Vcards",export_to_vcards_contacts_path, :target => :blank
 .clear_both
 !=table_up('All my contacts')
 .picture_column.table_headers

@@ -6,11 +6,14 @@ Rolodex::Application.routes.draw do
   resources :addresses
   resources :contacts do
     post :delete_selection , :on => :collection
+    get :export_to_vcard, :on => :member
+    get :export_to_vcards, :on => :collection
   end
   resources :lists do
     get :show_contacts , :on => :member
-    post :delete_selection, :on => :collection
     get :add_contact, :on => :member
+    get :export_to_vcards, :on => :member
+    post :delete_selection, :on => :collection
   end
 end
 

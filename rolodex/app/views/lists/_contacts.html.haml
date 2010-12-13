@@ -12,7 +12,10 @@
   = link_to "Delete selected","", :class => :gen_cont
 .contact_paginate
   =will_paginate @contacts, :params => {:order => params[:order],:action=>"show_contacts", :controller=>"lists",:id => @list.id}
+  %br/
+  =link_to "> Expor all to Vcards",export_to_vcards_list_path(@list), :target => :blank
 .clear_both
+
 %div{:id => "#{@list.id}", :class => "drop"}
   !=table_up(title+delete)
   %div{:id => "#{@list.id}_inner"}
