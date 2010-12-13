@@ -1,0 +1,32 @@
+- title= @address.new_record? ? 'Create new address' : 'Edit address'
+=form_for @address, :remote => true do |f|
+  =f.error_messages
+  !=table_up(title)
+  = f.label 'Address'
+  = f.hidden_field :contact_id, :size => "20"
+  %br/
+  = f.text_field :address, :size => "20"
+  %br/
+  = f.label 'Zip'
+  %br/
+  = f.text_field :zip, :size => "5"
+  %br/
+  = f.label 'City'
+  %br/
+  = f.text_field :city, :size => "20"
+  %br/
+  = f.label 'State'
+  %br/
+  = f.text_field :state, :size => "20"
+  %br/
+  = f.label 'Country'
+  %br/
+  = f.text_field :city, :size => "20"
+  %br/
+  = f.label "Address Type"
+  %br/
+  = f.select :address_type_id, options_from_collection_for_select(@address_types, "id", "name",@address.address_type_id.to_i), {:include_blank => true}
+  %br/
+  = f.submit @address.new_record? ? 'Save' : 'Update'
+  %input{:value => "Cancel",:type => "button",:id => "address_cancel", :rel => "#{addresses_path(:contact_id => @address.contact_id)}"}
+  !=table_down

@@ -103,5 +103,6 @@ class ContactsController < ApplicationController
 
   def load_extra_info(contact)
     @phone_numbers=contact.phone_numbers
+    @addresses=contact.addresses
   end
 end

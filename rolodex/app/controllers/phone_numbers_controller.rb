@@ -7,7 +7,7 @@ class PhoneNumbersController < ApplicationController
 
   def index
     @contact_id=params[:contact_id]
-    @phone_numbers = contact_phone_numbers(@contact_id)
+    contact_phone_numbers(@contact_id)
   end
 
   def new
@@ -28,7 +28,7 @@ class PhoneNumbersController < ApplicationController
       if @phone_number.save
         flash[:notice] = "Successfully created phone_number."
         @contact_id=@phone_number.contact_id
-        @phone_numbers = contact_phone_numbers(@phone_number.contact_id)
+        contact_phone_numbers(@phone_number.contact_id)
         format.js { render :action => :index}
       else
         format.js { render :action => :new}
@@ -55,7 +55,7 @@ class PhoneNumbersController < ApplicationController
       if @phone_number.update_attributes(params[:phone_number])
         flash[:notice] = "Successfully updated phone_number."
         @contact_id=@phone_number.contact_id
-        @phone_numbers = contact_phone_numbers(@phone_number.contact_id)
+        contact_phone_numbers(@phone_number.contact_id)
         format.js { render :action => :index}
       else
         format.js { render :action => :new}
@@ -68,7 +68,7 @@ class PhoneNumbersController < ApplicationController
     @contact_id=@phone_number.contact_id
     @phone_number.destroy
     flash[:notice] = "Successfully destroyed phone_number."
-    @phone_numbers = contact_phone_numbers(@contact_id)
+    contact_phone_numbers(@contact_id)
     respond_to do |format|
       format.html { redirect_to contacts_path}
       format.js { render :action => :index}
@@ -78,6 +78,6 @@ class PhoneNumbersController < ApplicationController
 
   def contact_phone_numbers(contact_id)
     contact=Contact.where(:id => contact_id).first
-    contact.phone_numbers || []
+    @phone_numbers = contact.phone_numbers || []
   end
 end
