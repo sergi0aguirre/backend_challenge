@@ -1,9 +1,9 @@
 class Contact < ActiveRecord::Base
 
-  has_many   :phone_numbers
-  has_many   :addresses
-  has_many   :lists, :through => :contacts_lists
-  has_many   :contacts_lists
+  has_many   :phone_numbers , :dependent => :destroy
+  has_many   :addresses, :dependent => :destroy
+  has_many   :lists, :through => :contact_lists
+  has_many   :contact_lists , :dependent => :destroy
   belongs_to :user
   validates  :first_name, :presence=>true
   validates_uniqueness_of :first_name, :scope=>[:last_name]
