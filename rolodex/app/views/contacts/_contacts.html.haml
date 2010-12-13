@@ -6,7 +6,7 @@
 #contact_paginate
   =will_paginate @contacts, :params => {:key => params[:key],:order => params[:order],:action=>"index", :controller=>"contacts"}
 .clear_both
-!=table_up('Contacts')
+!=table_up('All my contacts')
 .picture_column.table_headers
   Picture
 .name_column.table_headers

@@ -16,7 +16,7 @@ table{
 fieldset,img{
 	border:0;
 }
-address,caption,cite,code,dfn,em,strong,th,var,optgroup{
+address,caption,cite,code,dfn,em,th,var,optgroup{
 	font-style:inherit;
 	font-weight:inherit;
 }
