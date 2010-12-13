@@ -36,6 +36,7 @@ class ContactsController < ApplicationController
       stored=true
     end
     load_contacts
+    load_extra_info(@contact)
     responds_to_parent do
       render :update do |page|
         page << ajax_contact_form(stored)
