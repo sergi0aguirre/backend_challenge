@@ -155,6 +155,19 @@ a.login_links:hover{
   width:650px;
 }
 
+#list_left{
+  display:none;
+  float:left;
+  width:500px;
+}
+
+#list{
+  display:block;
+  float:right;
+  width:650px;
+  margin-bottom :30px;
+}
+
 #wellcome_contacts{
   display:block;
   float:left;
@@ -337,4 +350,10 @@ a.login_links:hover{
   font-size: 15px;
   font-weight: bold;
   font-family:Arial,verdana, Helvetica, sans-serif;
+}
+
+.titulo_table a{
+  font-size: 12px;
+  font-weight:lighter;
+  text-decoration: none;
 }

@@ -22,4 +22,5 @@ function refresh_general_form(txt,name){
       url: $(this).attr('rel')
     });
   });
+  $("#" + name + "_cancel").focus();
 }

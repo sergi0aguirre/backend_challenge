@@ -1,0 +1,6 @@
+%div
+  -unless params[:action]=="show"
+    = link_to "Add new list",new_list_path, :remote => true
+!=table_up('My Lists')
+=render @lists
+!=table_down

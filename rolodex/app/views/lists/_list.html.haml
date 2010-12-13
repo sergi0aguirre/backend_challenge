@@ -1,0 +1,6 @@
+-title=link_to  list.name, edit_list_path(list), :remote => true ,:title => 'Edit'
+-delete= link_to "[X]", list, :remote => true, :confirm => 'Are you sure?', :method => :delete
+%br/
+!=table_up(title+delete)
+Drag your contacts Here 
+!=table_down

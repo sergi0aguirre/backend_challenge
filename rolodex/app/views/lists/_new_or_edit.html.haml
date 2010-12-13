@@ -1,0 +1,10 @@
+- title= @list.new_record? ? 'Create new list' : 'Edit list'
+=form_for @list, :remote => true do |f|
+  =f.error_messages
+  !=table_up(title)
+  = f.label 'Name'
+  = f.text_field :name, :size => "20"
+  %br/
+  = f.submit @list.new_record? ? 'Save' : 'Update'
+  %input{:value => "Cancel",:type => "button",:id => "list_cancel", :rel => "#{lists_path}"}
+  !=table_down

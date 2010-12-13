@@ -99,6 +99,9 @@ class ContactsController < ApplicationController
     order= params[:order]=="down" ? "first_name DESC" : "first_name ASC"
     params[:page]= 1 if params[:page]=="null"
     @contacts=Contact.filter(key,order,current_user.id).paginate :page => params[:page], :per_page => @total_pages
+
+    #Load the lists
+    @lists=current_user.lists
   end
 
   def load_extra_info(contact)
