@@ -11,6 +11,7 @@ gem 'ruby_parser'
 gem 'ruby-debug'
 gem "will_paginate", "3.0.pre"
 gem 'paperclip'
+gem 'vpim'
 gem "rails3-generators", :group => :development
 
 group :test do
@@ -28,6 +29,6 @@ group :test do
   gem 'cucumber-rails'
   gem 'cucumber'
   gem 'spork'
-  gem 'launchy'    # So you can do Then show me the page
+  gem 'launchy'   
 
 end
