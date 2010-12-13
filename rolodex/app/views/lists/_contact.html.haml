@@ -1,4 +1,4 @@
-%div.drag{:rel => "#{contact.id}"}
+%div
   .picture_column
     %input{ :id =>"#{contact.id}",:type => "checkbox" ,:class => "check_contact"}
     = image_tag contact.photo.url(:thumb)

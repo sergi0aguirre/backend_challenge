@@ -69,4 +69,25 @@ class ListsController < ApplicationController
   def load_lists
     @lists = current_user.lists || []
   end
+
+  def show_contacts
+    @list = List.find(params[:id])
+    @contacts = @list.contacts || []
+    respond_to do |format|
+      format.html { redirect_to contacts_path}
+      format.js
+    end
+  end
+
+  def add_contact
+    @list = List.find(params[:id])
+    @contact=Contact.find(params[:contact_id])
+    @contact.add_to_list(@list)
+    @contacts = @list.contacts || []
+    respond_to do |format|
+      format.html { redirect_to contacts_path}
+      format.js { render :action => :show_contacts}
+    end
+  end
+
 end

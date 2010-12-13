@@ -21,7 +21,7 @@ class Contact < ActiveRecord::Base
 
   # add a self to a list
   def add_to_list(list)
-
+    self.contact_lists.create(:list => list)
   end
 
   def full_name

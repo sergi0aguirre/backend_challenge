@@ -224,8 +224,7 @@ a.login_links:hover{
   color:#fff;
 }
 
-.draggable{
-  cursor:move;
+.drag{
   min-height: 35px;
 }
 

@@ -16,6 +16,9 @@ $(document).ready(function(){
   set_links_functionalities();
   /*Sent The current contact list page  when we update the contact (Ajax iframe upload)*/
   send_current_page();
+
+  /*Load Drag and Drop*/
+  set_drag_and_drop();
 });
 
 function send_current_page(){
@@ -87,9 +90,9 @@ function set_links_functionalities(){
           }
         });
       }
-      }else{
-        alert("You should Select at least one contact");
-      }
+    }else{
+      alert("You should Select at least one contact");
+    }
     return false;
 
   });
