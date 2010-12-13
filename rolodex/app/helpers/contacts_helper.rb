@@ -13,6 +13,13 @@ module ContactsHelper
       txtpage << "$('#contact_errors').html('"+escape_javascript(error_messages_for(@contact))+"');"
       txtpage << "$('#cancel_form_button').click(function() {$('#contact_form').hide()});"
       txtpage << "$('#contact_errors').show(300);"
+      txtpage << "$('#cancel_form_button_edit').click(function() {
+    $.ajax({
+      type: 'get',
+      dataType: 'script',
+      url: $(this).attr('rel')
+       });
+      });"
     end
      txtpage << "$('#contact_list .contact_edit').click(function() {$('#contact_form').show();return false;});"
      txtpage << "$('.pagination a').attr('data-remote', 'true');"
