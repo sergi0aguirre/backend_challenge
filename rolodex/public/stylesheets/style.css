@@ -144,6 +144,11 @@ a.login_links:hover{
   width:500px;
 }
 
+#contact_form a{
+  margin-left:5px;
+}
+
+
 #contact_list{
   display:block;
   float:right;
