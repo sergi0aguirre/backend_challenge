@@ -1,3 +1,5 @@
-$("#"+<%=@list.id%>+"_inner").html("<%= escape_javascript( render(:partial => "contacts") ) %>");
+$("#list").html("<%= escape_javascript( render(:partial => "contacts") ) %>");
 /*Load Drag and Drop*/
 set_drag_and_drop();
+set_general_links();
+load_search_functionality("_gen");

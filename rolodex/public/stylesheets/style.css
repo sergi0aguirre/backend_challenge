@@ -192,6 +192,11 @@ a.login_links:hover{
   width:200px;
 }
 
+.search_form{
+  display:block;
+  float:right;
+  width:200px;
+}
 #wellcome_contacts{
   display:block;
   float:left;
@@ -214,6 +219,25 @@ a.login_links:hover{
 #contact_select a{
   padding-right:10px;
 }
+
+
+.contact_paginate{
+  display:block;
+  float:left;
+  width:295px;
+}
+
+.contact_select{
+  display:block;
+  float:right;
+  width:355px;
+  height: 30px;
+}
+
+.contact_select a{
+  padding-right:5px;
+}
+
 .contact_left{
   margin-top:10px;
   display:block;

@@ -1,6 +1,25 @@
-.picture_column.picture_gen.table_headers
-  Picture
-.name_column.name_gen.table_headers
-  Full Name
+-title=link_to  @list.name, edit_list_path(@list), :remote => true ,:title => 'Edit'
+-delete= link_to " - [X]", @list, :remote => true, :confirm => 'Are you sure?', :method => :delete, :title => "Delete"
+.search_form
+  = render :partial => "search_form"
 .clear_both
-=render :partial => 'contact', :collection => @contacts
+%br/
+.contact_select
+  = link_to "<< Back ",lists_path, :remote => :true
+  = link_to "#{@ordertxt}","", :id => :orderlink_gen
+  = link_to "Select all","", :class => :gen_all
+  = link_to "Select none","", :class => :gen_none
+  = link_to "Delete selected","", :class => :gen_cont
+.contact_paginate
+  =will_paginate @contacts, :params => {:order => params[:order],:action=>"show_contacts", :controller=>"lists",:id => @list.id}
+.clear_both
+%div{:id => "#{@list.id}", :class => "drop"}
+  !=table_up(title+delete)
+  %div{:id => "#{@list.id}_inner"}
+    .picture_column.picture_gen.table_headers
+      Picture
+    .name_column.name_gen.table_headers
+      Full Name
+    .clear_both
+    =render :partial => 'contact', :collection => @contacts
+  !=table_down

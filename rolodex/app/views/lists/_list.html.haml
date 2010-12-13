@@ -6,5 +6,5 @@
   %div{:id => "#{list.id}_inner"}
     Drag your contacts Here or
     %br/
-    =link_to "Click here show the contacts in this list",show_contacts_list_path(list), :remote => :true
+    =link_to "Click here show the contacts in this list",show_contacts_list_path(list), :remote => :true , :class => "drop_link"
   !=table_down

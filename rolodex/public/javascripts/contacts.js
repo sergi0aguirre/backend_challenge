@@ -1,13 +1,7 @@
 $(document).ready(function(){
   /*Load Search functionality */
-  $("#key").keyup(function() {
-    $('#search').submit();
-  });
-  $("#clear_search").click(function() {
-    $('#key').val("");
-    $('#search').submit();
-    return false;
-  });
+  load_search_functionality("");
+  load_search_functionality("_gen");
 
   /*add Sort functionality to link*/
   add_sort_functionality();
@@ -116,3 +110,6 @@ function add_sort_functionality(){
   });
 
 }
+
+
+

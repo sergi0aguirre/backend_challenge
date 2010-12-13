@@ -80,12 +80,10 @@ class ListsController < ApplicationController
   end
 
   def add_contact
-    @total_pages=10
-    @with_page='page_contact'
     @list = List.find(params[:id])
     @contact=Contact.find(params[:contact_id])
     @contact.add_to_list(@list)
-    @contacts = @list.contacts.paginate :page => params[:page], :per_page => @total_pages || []
+    load_contacts
     respond_to do |format|
       format.html { redirect_to contacts_path}
       format.js { render :action => :show_contacts}
@@ -102,10 +100,14 @@ class ListsController < ApplicationController
   end
 
   def load_contacts
-    @total_pages=10
+    @total_pages=2
     @with_page='page_contact'
+    @ordertxt= params[:orde_gen]=="down" ? "Order A-Z" : "Order Z-A"
+    order= params[:order_gen]=="down" ? "first_name DESC" : "first_name ASC"
+    params[:page]= 1 if params[:page]=="null"
     @list = List.find(params[:id])
-    @contacts = @list.contacts.paginate :page => params[:page], :per_page => @total_pages || []
+    key= params[:key_gen] || ""
+    @contacts = @list.contacts.search("%"+key+"%",current_user.id).paginate :page => params[:page], :per_page => @total_pages , :order => order
   end
 
 end
