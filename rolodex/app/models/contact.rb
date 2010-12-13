@@ -16,7 +16,7 @@ class Contact < ActiveRecord::Base
     :path => ":rails_root/public/assets/photos/:id/:style/:basename.:extension",
     :default_url => "missing_:style.jpg"
 
-  scope :search, lambda { |key,user_id|  where(["(first_name LIKE ? OR middle_name LIKE ? OR last_name LIKE ?) AND user_id=?",key,key,key,user_id]) }
+  scope :search, lambda { |key,user_id|  where(["(first_name LIKE ? OR middle_name LIKE ? OR last_name LIKE ? OR company_name LIKE ?) AND user_id=?",key,key,key,key,user_id]) }
   scope :where_ids, lambda { |ids,user_id|  where(["id IN (#{ids}) AND user_id=?",user_id]) }
 
   # add a self to a list
