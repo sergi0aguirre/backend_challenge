@@ -4,13 +4,13 @@ class ContactsController < ApplicationController
   def load
     @total_pages=10
     @with_page='page_contact'
-    load_contacts
   end
 
   def index
+    load_contacts
   end
 
-   def show
+  def show
     @contact = Contact.find(params[:id])
     respond_to do |format|
       format.html { redirect_to contacts_path}
@@ -32,9 +32,9 @@ class ContactsController < ApplicationController
     stored=false
     if @contact.save
       flash[:notice] = "Successfully created contact."
-      load_contacts
       stored=true
     end
+    load_contacts
     responds_to_parent do
       render :update do |page|
         page << ajax_contact_form(stored)
@@ -56,9 +56,9 @@ class ContactsController < ApplicationController
     @contact = Contact.find(params[:id])
     if @contact.update_attributes(params[:contact])
       flash[:notice] = "Successfully updated contact."
-      load_contacts
       stored=true
     end
+    load_contacts
     responds_to_parent do
       render :update do |page|
         page << ajax_contact_form(stored)
@@ -74,8 +74,7 @@ class ContactsController < ApplicationController
   end
 
   def search
-    key=params[:key] || ""
-    @contacts=Contact.search("%"+key+"%",current_user.id).paginate :page => params[:page], :per_page => @total_pages
+    load_contacts
     respond_to do |format|
       format.js {render :action=> :index}
     end
@@ -84,17 +83,19 @@ class ContactsController < ApplicationController
   def delete_selection
     contacts=Contact.where_ids(params[:ids],current_user)
     contacts.delete_all
-    @contacts = current_user.contacts.paginate :page => params[:page], :per_page => @total_pages
+    load_contacts
     respond_to do |format|
       format.js {render :partial => 'contacts'}
     end
   end
 
-end
 
-def load_contacts
-    @ordertxt=params[:order]=="down" ? "Order A-Z" : "Order Z-A"
-    key=params[:key] || ""
-    order=params[:order]=="down" ? "first_name DESC" : "first_name ASC"
+  def load_contacts
+    @ordertxt= params[:order]=="down" ? "Order A-Z" : "Order Z-A"
+    key= params[:key] || ""
+    order= params[:order]=="down" ? "first_name DESC" : "first_name ASC"
+    params[:page]= 1 if params[:page]=="null"
     @contacts=Contact.filter(key,order,current_user.id).paginate :page => params[:page], :per_page => @total_pages
+  end
+
 end
