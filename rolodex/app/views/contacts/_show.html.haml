@@ -15,3 +15,5 @@
 = link_to "Delete", @contact, :remote => true, :confirm => 'Are you sure?', :method => :delete, :class => :conctac_destroy
 = link_to " [x] Close", "", :id => :close_show
 !=table_down
+#phone_number
+  = render :partial => "/phone_numbers/phone_numbers"

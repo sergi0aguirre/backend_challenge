@@ -1,7 +1,8 @@
 %div
-  =link_to  phone_number.full_number, edit_phone_number_path(phone_number), :remote => true ,:title => 'Edit'
-  (
-  =phone_number.phone_type_name
-  )
+  =" => " + phone_number.phone_type_name
   -
-  = link_to "[X]", phone_number, :remote => true, :confirm => 'Are you sure?', :method => :delete
+  -if params[:action]=="show"
+    =phone_number.full_number
+  -else
+    =link_to  phone_number.full_number, edit_phone_number_path(phone_number), :remote => true ,:title => 'Edit'
+    = link_to "[X]", phone_number, :remote => true, :confirm => 'Are you sure?', :method => :delete

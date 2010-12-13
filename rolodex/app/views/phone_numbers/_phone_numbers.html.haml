@@ -1,5 +1,6 @@
 %div
-  = link_to "Add new phone",new_phone_number_path(:contact_id => @contact_id || @contact.id), :remote => true
+  -unless params[:action]=="show"
+    = link_to "Add new phone",new_phone_number_path(:contact_id => @contact_id || @contact.id), :remote => true
 !=table_up('Phone Numbers')
 =render @phone_numbers
 !=table_down
