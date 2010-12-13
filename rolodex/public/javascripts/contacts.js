@@ -68,9 +68,10 @@ function set_links_functionalities(){
   });
   /*ajax functionality for delete all contacts*/
   $("#deletecontacts").click(function(){
-    if (confirm('Are you sure to delete all the selected contacs?')){
-      selected_contacts=contacts=$("#contact_list").find("input:checked")
-      if (selected_contacts.length > 0){
+    
+    selected_contacts=contacts=$("#contact_list").find("input:checked")
+    if (selected_contacts.length > 0){
+      if (confirm('Are you sure to delete all the selected contacs?')){
         selected_contacts.each(function(){
           ids= new Array()
           $("#contact_list").find("input:checked").each(function(){
@@ -85,10 +86,10 @@ function set_links_functionalities(){
             $("#contact_list").html(data);
           }
         });
+      }
       }else{
         alert("You should Select at least one contact");
       }
-    }
     return false;
 
   });
