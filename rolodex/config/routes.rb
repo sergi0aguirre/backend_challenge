@@ -9,6 +9,7 @@ Rolodex::Application.routes.draw do
   end
   resources :lists do
     get :show_contacts , :on => :member
+    get :delete_selection, :on => :member
     get :add_contact, :on => :member
   end
 end

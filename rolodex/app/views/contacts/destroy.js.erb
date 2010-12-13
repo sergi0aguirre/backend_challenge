@@ -4,3 +4,6 @@ $(".notice").show(300);
 $("#contact_list").html("<%= escape_javascript( render(:partial => "contacts") ) %>");
 $("#contact_list .contact_edit").click(function() {$('#contact_form').show();return false;});
 $("#contact_form").html("");
+$("#list").html("<%= escape_javascript( render(:partial => "/lists/lists") ) %>");
+/*Load Drag and Drop*/
+  set_drag_and_drop();

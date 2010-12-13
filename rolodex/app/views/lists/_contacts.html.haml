@@ -1,6 +1,6 @@
-.picture_column.table_headers
+.picture_column.picture_gen.table_headers
   Picture
-.name_column.table_headers
+.name_column.name_gen.table_headers
   Full Name
 .clear_both
-=render @contacts
+=render :partial => 'contact', :collection => @contacts

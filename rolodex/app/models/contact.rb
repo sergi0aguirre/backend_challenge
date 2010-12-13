@@ -3,7 +3,7 @@ class Contact < ActiveRecord::Base
   has_many   :phone_numbers , :dependent => :destroy
   has_many   :addresses, :dependent => :destroy
   has_many   :lists, :through => :contact_lists
-  has_many   :contact_lists , :dependent => :destroy
+  has_many   :contact_lists
   belongs_to :user
   validates  :first_name, :presence=>true
   validates_uniqueness_of :first_name, :scope=>[:last_name]

@@ -1,9 +1,9 @@
 -title=link_to  list.name, edit_list_path(list), :remote => true ,:title => 'Edit'
--delete= link_to "[X]", list, :remote => true, :confirm => 'Are you sure?', :method => :delete
+-delete= link_to " - [X]", list, :remote => true, :confirm => 'Are you sure?', :method => :delete, :title => "Delete"
 %br/
 %div{:id => "#{list.id}", :class => "drop"}
   !=table_up(title+delete)
-  %div{:id => "#{list.id}_inner", :class => "drop"}
+  %div{:id => "#{list.id}_inner"}
     Drag your contacts Here or
     %br/
     =link_to "Click here show the contacts in this list",show_contacts_list_path(list), :remote => :true

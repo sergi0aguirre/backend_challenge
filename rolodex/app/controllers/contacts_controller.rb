@@ -71,7 +71,9 @@ class ContactsController < ApplicationController
 
   def destroy
     @contact = Contact.find(params[:id])
+    ContactList.where(:contact_id=>@contact.id).delete_all
     @contact.destroy
+    @lists = current_user.lists || []
     flash[:notice] = "Successfully destroyed contact."
     load_contacts
   end

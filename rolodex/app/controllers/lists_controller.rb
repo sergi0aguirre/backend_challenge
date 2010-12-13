@@ -56,6 +56,7 @@ class ListsController < ApplicationController
 
   def destroy
     @list =List.find(params[:id])
+    ContactList.where(:list_id=>@list.id).delete_all
     @list.destroy
     flash[:notice] = "Successfully destroyed list."
     load_lists
@@ -71,8 +72,7 @@ class ListsController < ApplicationController
   end
 
   def show_contacts
-    @list = List.find(params[:id])
-    @contacts = @list.contacts || []
+    load_contacts
     respond_to do |format|
       format.html { redirect_to contacts_path}
       format.js
@@ -80,14 +80,32 @@ class ListsController < ApplicationController
   end
 
   def add_contact
+    @total_pages=10
+    @with_page='page_contact'
     @list = List.find(params[:id])
     @contact=Contact.find(params[:contact_id])
     @contact.add_to_list(@list)
-    @contacts = @list.contacts || []
+    @contacts = @list.contacts.paginate :page => params[:page], :per_page => @total_pages || []
     respond_to do |format|
       format.html { redirect_to contacts_path}
       format.js { render :action => :show_contacts}
     end
+  end
+
+  def delete_selection
+    contacts=ContactList.where_ids(params[:ids],params[:id])
+    contacts.delete_all
+    load_contacts
+    respond_to do |format|
+      format.js {render :show_contacts}
+    end
+  end
+
+  def load_contacts
+    @total_pages=10
+    @with_page='page_contact'
+    @list = List.find(params[:id])
+    @contacts = @list.contacts.paginate :page => params[:page], :per_page => @total_pages || []
   end
 
 end

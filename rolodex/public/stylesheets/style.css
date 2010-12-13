@@ -123,11 +123,23 @@ a.login_links:hover{
   width:500px;
 }
 
+
+
+
 .name_column a{
   color: #43443f;
   font-weight: bold;
   text-decoration:none;
 }
+
+.picture_gen{
+  width:100px;
+}
+
+.name_gen{
+  width:450px;
+}
+
 
 .notice{
   color:#fff;
@@ -228,6 +240,9 @@ a.login_links:hover{
   min-height: 35px;
 }
 
+.list{
+  min-height: 35px;
+}
 
 
 #loading{

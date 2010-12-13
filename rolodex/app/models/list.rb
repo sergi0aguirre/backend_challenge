@@ -1,9 +1,8 @@
 class List < ActiveRecord::Base
   belongs_to :user
   has_many   :contacts, :through => :contact_lists
-  has_many   :contact_lists, :dependent => :destroy
+  has_many   :contact_lists
 
   validates :name ,:presence=>true
   validates :user_id ,:presence=>true
-  
 end
