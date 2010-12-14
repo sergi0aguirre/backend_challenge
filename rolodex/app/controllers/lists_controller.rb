@@ -100,7 +100,7 @@ class ListsController < ApplicationController
   end
 
   def load_contacts
-    @total_pages=2
+    @total_pages=10
     @with_page='page_contact'
     @ordertxt= params[:orde_gen]=="down" ? "Order A-Z" : "Order Z-A"
     order= params[:order_gen]=="down" ? "first_name DESC" : "first_name ASC"
