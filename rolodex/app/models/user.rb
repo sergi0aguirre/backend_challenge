@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :lists
   has_many :contacts
 
+  #Export all teh contacts of especific user  to vcards
   def contacts_to_vcards
     contacts=self.contacts
     vcards=""

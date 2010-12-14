@@ -28,6 +28,11 @@ class Contact < ActiveRecord::Base
     "#{first_name} #{middle_name} #{last_name}"
   end
 
+  #List the contacts
+  def self.filter(key,order,user)
+    Contact.search("%"+key+"%",user).order(order)
+  end
+
   def to_vcard
     card=Vpim::Vcard.create
 
@@ -67,10 +72,5 @@ class Contact < ActiveRecord::Base
     card.to_s
     
   end
-  #List the contacts
-  def self.filter(key,order,user)
-    Contact.search("%"+key+"%",user).order(order)
-  end
-
 
 end
