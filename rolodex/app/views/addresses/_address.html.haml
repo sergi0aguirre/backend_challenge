@@ -30,5 +30,5 @@
   =address.address_type_name
   %br/
   -unless params[:action]=="show"
-    = link_to  "Edit", edit_address_path(address), :remote => true ,:title => 'Edit'
-    = link_to "[X]", address, :remote => true, :confirm => 'Are you sure?', :method => :delete
+    = link_to  "Edit", edit_address_path(address), :remote => true ,:title => 'Edit', :id => "address_edit_#{address.id}"
+    = link_to "[X]", address, :remote => true, :confirm => 'Are you sure?', :method => :delete, :id => "address_delete_#{address.id}"

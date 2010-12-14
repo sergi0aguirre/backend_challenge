@@ -4,5 +4,5 @@
   -if params[:action]=="show"
     =phone_number.full_number
   -else
-    =link_to  phone_number.full_number, edit_phone_number_path(phone_number), :remote => true ,:title => 'Edit'
-    = link_to "[X]", phone_number, :remote => true, :confirm => 'Are you sure?', :method => :delete
+    =link_to  phone_number.full_number, edit_phone_number_path(phone_number), :remote => true ,:title => 'Edit', :id => "phone_edit_#{phone_number.id}"
+    = link_to "[X]", phone_number, :remote => true, :confirm => 'Are you sure?', :method => :delete, :id => "phone_delete_#{phone_number.id}"

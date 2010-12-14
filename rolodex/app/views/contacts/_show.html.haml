@@ -17,7 +17,7 @@
 .clear_both
 = link_to "Edit ", edit_contact_path(@contact), :remote => true, :class => :conctac_edit
 = link_to "Export as Vcard", export_to_vcard_contact_path(@contact), :class => :conctac_edit, :target => :blank
-= link_to "Delete", @contact, :remote => true, :confirm => 'Are you sure?', :method => :delete, :class => :conctac_destroy
+= link_to "|Delete", @contact, :remote => true, :confirm => 'Are you sure?', :method => :delete, :class => :conctac_destroy
 = link_to " [x] Close", "", :id => :close_show
 !=table_down
 #address
