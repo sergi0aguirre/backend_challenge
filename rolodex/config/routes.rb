@@ -11,6 +11,7 @@ Rolodex::Application.routes.draw do
   end
   resources :lists do
     get :show_contacts , :on => :member
+    get :search_contacts, :on => :collection
     get :add_contact, :on => :member
     get :export_to_vcards, :on => :member
     post :delete_selection, :on => :collection

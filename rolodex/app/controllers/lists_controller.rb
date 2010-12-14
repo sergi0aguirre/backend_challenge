@@ -79,6 +79,17 @@ class ListsController < ApplicationController
     end
   end
 
+
+  def search_contacts
+    params[:id]=params[:list_id]
+    load_contacts
+    respond_to do |format|
+      format.html { redirect_to contacts_path}
+      format.js
+    end
+  end
+
+
   def add_contact
     @list = List.find(params[:id])
     @contact=Contact.find(params[:contact_id])
@@ -99,7 +110,15 @@ class ListsController < ApplicationController
     end
   end
 
-  def load_contacts
+  def export_to_vcards
+    list=List.find(params[:id])
+    cards=list.contacts_to_vcards
+    filename="contacts_for_#{list.name}_#{list.id}.vcf"
+    send_data cards, :filename => filename,
+      :type => 'text/directory'
+  end
+
+    def load_contacts
     @total_pages=10
     @with_page='page_contact'
     @ordertxt= params[:orde_gen]=="down" ? "Order A-Z" : "Order Z-A"
@@ -110,12 +129,5 @@ class ListsController < ApplicationController
     @contacts = @list.contacts.search("%"+key+"%",current_user.id).paginate :page => params[:page], :per_page => @total_pages , :order => order
   end
 
-  def export_to_vcards
-    list=List.find(params[:id])
-    cards=list.contacts_to_vcards
-    filename="contacts_for_#{list.name}_#{list.id}.vcf"
-    send_data cards, :filename => filename,
-      :type => 'text/directory'
-  end
 
 end

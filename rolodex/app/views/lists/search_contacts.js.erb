@@ -1,6 +1,4 @@
 $("#list").html("<%= escape_javascript( render(:partial => "contacts") ) %>");
-$("#list_id").val(<%=@list.id%>);
-$("#seacrh_on_list").show(300);
 /*Load Drag and Drop*/
 set_drag_and_drop();
 set_general_links();

@@ -1,6 +1,7 @@
-=form_tag (show_contacts_list_path(@list.id), :remote => true ,:id => 'search_gen', :method =>'get') do
+=form_tag (search_contacts_lists_path, :remote => true ,:id => 'search_gen', :method =>'get') do
     !=table_up("Search")
-    =text_field_tag 'key_gen', ''
+    =text_field_tag 'key_gen', params[:key_gen]
     =hidden_field_tag 'order_gen', ''
+    =hidden_field_tag 'list_id', ''
     =link_to "Clear","",:id=>"clear_search_gen"
     !=table_down
