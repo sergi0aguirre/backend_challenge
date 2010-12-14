@@ -1,4 +1,12 @@
 ContactList.blueprint{
-  contact {Contact.make}
-  list {List.make}
+  contact {
+    contact=Contact.make
+    contact.save
+    contact
+  }
+  list {
+    list=List.make
+    list.save
+    list
+  }
 }

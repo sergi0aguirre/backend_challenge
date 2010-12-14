@@ -1,6 +1,14 @@
 Address.blueprint {
-  address_type {AddressType.make}
-  contact {Contact.make}
+  address_type{
+    address=AddressType.make
+    address.save
+    address
+  }
+  contact {
+    contact=Contact.make
+    contact.save
+    contact
+  }
   address {Faker::Address.street_address}
   zip {Faker::Address.zip_code}
   city {Faker::Address.city}

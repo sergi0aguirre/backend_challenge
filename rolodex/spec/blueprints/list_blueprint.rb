@@ -1,4 +1,8 @@
 List.blueprint{
   name {Faker::Name.first_name}
-  user  {User.make}
+  user  {
+    user=User.make
+    user.save
+    user
+  }
 }
