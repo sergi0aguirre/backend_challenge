@@ -14,4 +14,6 @@ describe ContactList do
     contactlist=ContactList.new(:contact_id => 1,:list_id => 1)
     contactlist.valid?.should be_false
   end
+
+ 
 end

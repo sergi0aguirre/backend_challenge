@@ -5,7 +5,6 @@ describe PhoneNumber do
 
   before(:each) do
     @phone_number = PhoneNumber.make
-    @phone_number.area_code = Utils::random_number(3)
   end
 
   it { should belong_to(:contact) }
