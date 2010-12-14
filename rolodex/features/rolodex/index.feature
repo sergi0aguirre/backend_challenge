@@ -22,6 +22,14 @@ Scenario: Go to edit user page
     And I follow "sergio.aguirre@live.com.mx (edit)"
     Then I should be on the edit user registration page
 
+Scenario: Go to contacts page
+    Given a user with email "sergio.aguirre@live.com.mx" and password "123456"
+    Given I sign in with "sergio.aguirre@live.com.mx/123456" credentials
+    And I follow "My Contacts"
+    Then I should be on the contacts page
+    And I should see "Add new contact"
+    And I should see "All my contacts"
+
 Scenario: Going to Sign in page
     When I follow "Sign in"
     Then I should be on the new user session page

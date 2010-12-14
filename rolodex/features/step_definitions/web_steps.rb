@@ -181,9 +181,20 @@ Then /^the "([^"]*)" checkbox(?: within "([^"]*)")? should be checked$/ do |labe
   end
 end
 
-Then /^the "([^"]*)" checkbox(?: within "([^"]*)")? should not be checked$/ do |label, selector|
+Then /^the "([^"]*)" checkbox(?: within "([^"]*)")? should be checked$/ do |label, selector|
   with_scope(selector) do
     field_checked = find_field(label)['checked']
+    if field_checked.respond_to? :should
+      field_checked.should be_true
+    else
+      assert field_checked
+    end
+  end
+end
+
+Then /^the checkbox(?: within "([^"]*)")? should not be checked$/ do |selector|
+  with_scope(selector) do
+    field_checked = find_field(selector)['checked']
     if field_checked.respond_to? :should
       field_checked.should be_false
     else
@@ -236,4 +247,9 @@ Then /^the confirmation box should have been displayed$/ do
   page.evaluate_script("$.cookie('confirm_message')").should_not be_nil
   page.evaluate_script("$.cookie('confirm_message')").should eq(@expected_message)
   page.evaluate_script("$.cookie('confirm_message', null)")
+end
+
+When /^I confirm a js popup on the next step$/ do
+  page.evaluate_script("window.alert = function(msg) { return true; }")
+  page.evaluate_script("window.confirm = function(msg) { return true; }")
 end
