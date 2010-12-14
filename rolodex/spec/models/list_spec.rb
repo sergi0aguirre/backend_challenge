@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe List do
   before(:each) do
-    @contact = Factory(:list)
+    @contact = List.make
   end
 
   it { should belong_to(:user) }

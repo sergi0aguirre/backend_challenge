@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
    before(:each) do
-    @contact = Factory(:user)
+    @user = User.make
   end
 
   it { should have_many(:lists) }

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Address do
   before(:each) do
-    @address = Factory(:address)
+    @address = Address.make
   end
 
   it { should belong_to(:contact) }
@@ -25,9 +25,10 @@ describe Address do
   it { should validate_format_of(:zip).not_with(' 55416 ') }
 
   it "should delegate address_type_name to address type" do
-    address_type = Factory(:address_type, :name => 'home')
-    @address = Factory(:address, :address_type => address_type )
-    @address.address_type = address_type
     @address.address_type_name.should == 'home'
+  end
+
+   it 'should  have  a virtual  address type name' do
+    @address.should respond_to(:address_type_name)
   end
 end

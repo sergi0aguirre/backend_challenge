@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe AddressType do
   before(:each) do
-    @address_type = Factory(:address_type)
+    @address_type = AddressType.make
   end
 
   %w(home office).each do |value|

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe PhoneType do
  before(:each) do
-    @contact = Factory(:phone_type)
+    @phonetype = PhoneType.make
   end
 
   it { should have_many(:phone_numbers) }
