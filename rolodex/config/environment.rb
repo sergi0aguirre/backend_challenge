@@ -1,7 +1,6 @@
 # Load the rails application
- File.expand_path('../application', __FILE__)
- #Load  the Vcard customization
- require 'vcard/customize'
-Paperclip::Railtie.insert
+require  File.expand_path('../application', __FILE__)
+#Load  the Vcard customization
+require 'vcard/customize'
 # Initialize the rails application
 Rolodex::Application.initialize!
