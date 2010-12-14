@@ -12,7 +12,7 @@ module Rolodex
       g.template_engine     :erb
       g.integration_tool    :rspec
       g.test_framework      :rspec, :views => false, :helpers => false
-      g.fixture_replacement :factory_girl, :dir => "spec/factories"
+      g.fixture_replacement :machinist
     end
 
     config.encoding = "utf-8"
