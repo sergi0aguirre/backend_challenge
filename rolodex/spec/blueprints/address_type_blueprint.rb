@@ -1,0 +1,3 @@
+AddressType.blueprint{
+  name { "home" }
+}

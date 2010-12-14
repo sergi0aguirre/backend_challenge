@@ -1,0 +1,3 @@
+PhoneType.blueprint{
+  name { "home" }
+}
