@@ -4,4 +4,5 @@ Factory.define :contact do |f|
   f.first_name "MyString"
   f.middle_name "MyString"
   f.last_name "MyString"
+  f.user_id 1
 end
